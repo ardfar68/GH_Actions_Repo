@@ -2,10 +2,7 @@ name: Hello world workflow
 on:
   push:
     branches:
-      - ardfar68_branch
-  pull_request:
-    branches:
-      - ardfar68_branch
+      - asf_branch
   workflow_dispatch:
 
 jobs:
