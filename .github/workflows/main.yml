@@ -14,3 +14,6 @@ jobs:
 
       - name: List repository files
         run: ls -la
+
+      - name: View README file
+        run: cat README.md
