@@ -17,3 +17,9 @@ jobs:
 
       - name: View README file
         run: cat README.md
+      
+      - name: Print current directory
+        run: pwd
+
+      - name: Show disk usage
+        run: df -h
