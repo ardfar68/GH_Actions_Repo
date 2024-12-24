@@ -12,11 +12,9 @@ jobs:
       - name: Print success message
         run: echo "This WF run successfully for this particular action"
 
-      - name: List repository files
-        run: ls -la
 
-      - name: View README file
-        run: cat README.md
+      - name: Simulate error
+        run: echo "error taking place"; lolo
       
       - name: Print current directory
         run: pwd
