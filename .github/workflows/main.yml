@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # this action clones my Repo into latest ubuntu
 
       - name: Print success message
         run: echo "This WF run successfully for this particular action"
+
+      - name: List repository files
+        run: ls -la
