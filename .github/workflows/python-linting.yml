@@ -17,5 +17,5 @@ jobs:
       uses: super-linter/super-linter@v7.2.1
     
       env:
-        GITHUB_TOKEN: ${{ secrets._MONAVARKHANOM50 }}
+        GITHUB_TOKEN: ${{ secrets._MONAVARKHANOM50_1 }}
         VALIDATE_JS: true
