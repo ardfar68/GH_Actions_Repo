@@ -10,12 +10,9 @@ jobs:
 
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
 
     - name: Super-Linter
       uses: super-linter/super-linter@v7.2.1
     
       env:
-        GITHUB_TOKEN: ${{ secrets._MONAVARKHANOM50_1 }}
-        VALIDATE_JS: true
+        GITHUB_TOKEN: ${{ secrets.ASF_PAT_FINE_GRAINED }}
