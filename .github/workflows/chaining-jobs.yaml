@@ -33,4 +33,13 @@ jobs:
     steps:
       - name: Output for Job 3
         run: echo "Hello from Job 3"
-      
+  job-4:
+    name: Job 4
+    runs-on: ubuntu-latest
+    # if: always()
+    needs:
+      - Job-2
+      - Job-3
+    steps:
+      - name: Output for Job 4
+        run: echo "Hello from Job 4"
