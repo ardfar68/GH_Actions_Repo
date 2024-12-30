@@ -22,6 +22,6 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
           echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-          echo "${{ github.event.input.name }}"
+          echo "${{ github.event.inputs.name.description }}"
           echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"         
            
