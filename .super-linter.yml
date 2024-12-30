@@ -1,7 +1,0 @@
-linter:
-  disable:
-    - CHECKOV
-    - GITHUB_ACTIONS
-    - JAVASCRIPT_STANDARD
-    - JAVASCRIPT_PRETTIER
-    - YAML_PRETTIER
