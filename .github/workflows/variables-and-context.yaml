@@ -49,7 +49,7 @@ jobs:
       VAR3: myjobvar3
     steps:
        - run: |
-          echo $VAR1
+          echo "on WF-level: $VAR1"
           echo ${{env.VAR1}}
 
           echo ""
