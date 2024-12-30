@@ -50,13 +50,10 @@ jobs:
     steps:
        - run: |
           echo "on WF-level: $VAR1"
-          echo ${{env.VAR1}}
-
+          echo "On WF-level method 2: ${{env.VAR1}}"
           echo ""
-
-          echo $VAR2
-
-          echo $VAR3
+          echo "On job level, overwrites WF-level VAR2: $VAR2"
+          echo "On step level, overwrites WF and job level VAR3: $VAR3"
          env: 
            VAR3: mystepvar3
 
