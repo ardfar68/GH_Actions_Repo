@@ -20,8 +20,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github.workflow) }}
         run: |
-          echo "$GITHUB_CONTEXT"
-          echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-          echo "${{ github.event.inputs.name }}"
-          echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"         
+          echo "asf1:  $GITHUB_CONTEXT"
+          echo "asf2:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          echo "asf3:  ${{ github.event.inputs.name }}"
+          echo "asf4:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"         
            
