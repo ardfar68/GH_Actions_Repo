@@ -18,7 +18,9 @@ jobs:
     steps:
       - name: "Dump GitHub context"
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github.workflow) }}
+          #GITHUB_CONTEXT: ${{ toJSON(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github.sha) }}
+
         run: |
           echo "asf1:  $GITHUB_CONTEXT"
           echo "asf2:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
