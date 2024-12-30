@@ -1,0 +1,18 @@
+name: Chaining Jobs
+on:
+  workflow_dispatch:
+    inputs:
+      run-job-3:
+        description: "Run job 3"
+        required: true
+        type: boolean
+jobs:
+  job-1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output for job 1
+        run: echo "Hello from Job 1. Run Job 3 equals ${{ github.event.inputs.run-job-3 }}"
+
+    
+      
