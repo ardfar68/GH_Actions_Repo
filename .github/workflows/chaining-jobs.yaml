@@ -36,10 +36,10 @@ jobs:
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-    # if: always()
+    if: always()
     needs:
       - job-2
-     # - job-3
+      - job-3
     steps:
       - name: Output for Job 4
         run: echo "Hello from Job 4"
