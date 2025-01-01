@@ -16,4 +16,4 @@ jobs:
           node-version: '22'
       
       - name: Run test.js
-        run: node ../../src/test.js
+        run: node ../src/test.js
