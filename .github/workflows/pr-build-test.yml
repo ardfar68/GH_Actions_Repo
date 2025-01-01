@@ -14,10 +14,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22'
-
-      - name: Install dependencies (if any)
-        run: |
-          npm install  # Add this step if your test.js has dependencies like 'npm install'
       
       - name: Run test.js
         run: node src/test.js
