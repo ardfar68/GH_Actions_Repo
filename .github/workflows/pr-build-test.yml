@@ -1,6 +1,6 @@
 name: PR - Build / Test
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   build:
