@@ -16,4 +16,10 @@ jobs:
           node-version: '22'
       
       - name: Run test.js
-        run: node ../src/test.js
+       # run: node ../src/test.js
+        run: |
+          echo "Listing root directory"
+          ls -l  # Check the contents of the root folder
+          echo "Listing src directory"
+          ls -l src  # Check the contents of src folder
+          node src/test.js  # Run the test directly from the src folder
