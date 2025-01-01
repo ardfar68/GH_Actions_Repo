@@ -1,4 +1,4 @@
-name: PR - Build / Test
+name: workflow for run test
 on:
   push:
 
