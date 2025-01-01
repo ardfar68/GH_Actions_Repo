@@ -1,0 +1,23 @@
+name: PR - Build / Test
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: Install dependencies (if any)
+        run: |
+          npm install  # Add this step if your test.js has dependencies like 'npm install'
+      
+      - name: Run test.js
+        run: node src/test.js
