@@ -5,7 +5,7 @@ on:
 
 jobs:
   Dev_environment:
-   # name: Run on dev env
+    name: Run on dev env
     runs-on: ubuntu-latest
     environment: Dev
     steps:
@@ -17,7 +17,7 @@ jobs:
           echo "I'm running a job in Dev environment"
 
   Stage_environment:
-   # name: Run on stage env
+    name: Run on stage env
     runs-on: ubuntu-latest
     environment: Stage
     needs: Dev_environment
@@ -30,7 +30,7 @@ jobs:
           echo "I'm running a job in Stage environment"
 
   Prod_environment:
-   # name: Run on prod env
+    name: Run on prod env
     runs-on: ubuntu-latest
     environment: Prod
     needs: Stage_environment
