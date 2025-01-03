@@ -1,0 +1,41 @@
+name: workflow run in three env
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Dev_environment:
+    name: Run on dev env
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      
+      - name: run script for dev env
+        run: |
+          echo "I'm running a job in Dev environment"
+
+  Stage_environment:
+    name: Run on stage env
+    runs-on: ubuntu-latest
+    environment: Stage
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      
+      - name: run script for stage env
+        run: |
+          echo "I'm running a job in Stage environment"
+
+  Prod_environment:
+    name: Run on prod env
+    runs-on: ubuntu-latest
+    environment: Prod
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      
+      - name: run script for prod env
+        run: |
+          echo "I'm running a job in Prod environment"
