@@ -32,7 +32,7 @@ jobs:
   Prod_environment:
     name: Run on prod env
     runs-on: ubuntu-latest
-    environment: Prod
+    environment: PRod
     needs: Stage_environment
     steps:
       - name: checkout code for prod
