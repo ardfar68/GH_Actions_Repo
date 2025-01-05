@@ -1,4 +1,4 @@
-name: workflow run in three env
+name: self hosted 3 env_upload_download artifact
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: workflow run in three env
+name: self hosted in  three env
 
 on:
   workflow_dispatch:
