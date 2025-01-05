@@ -1,0 +1,54 @@
+name: workflow run in three env
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Dev_environment:
+    name: Run on dev env
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - name: checkout code for dev
+        uses: actions/checkout@v3
+      
+      - name: run script for dev env
+        run: |
+          echo "I'm running a job in Dev environment"
+      
+      - name: Upload code artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-artifact
+          path: .
+
+  Stage_environment:
+    name: Run on stage env
+    runs-on: self-hosted
+    environment: Stage
+    needs: Dev_environment
+    steps:
+      - name: Download code artifact for stage env
+        uses: actions/download-artifact@v3
+        with:
+          name: code-artifact
+
+      
+      - name: run script for stage env
+        run: |
+          echo "I'm running a job in Stage environment"
+
+  Prod_environment:
+    name: Run on prod env
+    runs-on: ubuntu-latest
+    environment: Prod
+    needs: Stage_environment
+    steps:
+      - name: Download code artifact for prod env
+        uses: actions/download-artifact@v3
+        with:
+          name: code-artifact
+      
+      - name: run script for prod env
+        run: |
+          echo "I'm running a job in Prod environment"
