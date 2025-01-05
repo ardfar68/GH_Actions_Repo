@@ -6,7 +6,8 @@ on:
 jobs:
   Dev_environment:
     name: Run on dev env
-    runs-on: ubuntu-latest
+   # runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: Dev
     steps:
       - name: checkout code for dev

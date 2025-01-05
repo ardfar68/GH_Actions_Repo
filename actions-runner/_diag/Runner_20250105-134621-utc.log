@@ -242,3 +242,57 @@
 [2025-01-05 18:28:50Z INFO JobNotification] Entering EndMonitor
 [2025-01-05 18:28:50Z INFO MessageListener] Received job status event. JobState: Online
 [2025-01-05 18:58:54Z INFO MessageListener] No message retrieved from session '485281e2-b299-4774-bf9f-1c98437e0eba' within last 30 minutes.
+[2025-01-05 19:13:54Z INFO MessageListener] Message '8228571937978997831' received from session '485281e2-b299-4774-bf9f-1c98437e0eba'.
+[2025-01-05 19:13:54Z INFO ConfigurationStore] HasCredentials()
+[2025-01-05 19:13:54Z INFO ConfigurationStore] stored True
+[2025-01-05 19:13:54Z INFO CredentialManager] GetCredentialProvider
+[2025-01-05 19:13:54Z INFO CredentialManager] Creating type OAuth
+[2025-01-05 19:13:54Z INFO CredentialManager] Creating credential type: OAuth
+[2025-01-05 19:13:54Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\myPrivateRepo\GH_Actions_Repo\actions-runner\.credentials_rsaparams
+[2025-01-05 19:13:54Z INFO ActionsRunServer] EstablishVssConnection
+[2025-01-05 19:13:54Z INFO ActionsRunServer] Establish connection with 100 seconds timeout.
+[2025-01-05 19:13:54Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-01-05 19:13:55Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-01-05 19:13:55Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\myPrivateRepo\GH_Actions_Repo\actions-runner\.credentials_rsaparams
+[2025-01-05 19:13:55Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\myPrivateRepo\GH_Actions_Repo\actions-runner\.credentials_rsaparams
+[2025-01-05 19:13:56Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-01-05 19:13:56Z INFO JobDispatcher] Job request 204 for plan 4b2ae3d4-05f9-4cfb-802f-ed80de1da0ac job bb4a2341-4547-529b-0b61-d4e572cb554d received.
+[2025-01-05 19:13:56Z INFO JobDispatcher] Pull OrchestrationId 4b2ae3d4-05f9-4cfb-802f-ed80de1da0ac.stage_environment.__default from JWT claims
+[2025-01-05 19:13:56Z INFO MessageListener] Received job status event. JobState: Busy
+[2025-01-05 19:13:56Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2025-01-05 19:13:56Z INFO JobDispatcher] Job request bb4a2341-4547-529b-0b61-d4e572cb554d processed succeed.
+[2025-01-05 19:13:56Z INFO Terminal] WRITE LINE: 2025-01-05 19:13:56Z: Running job: Run on stage env
+[2025-01-05 19:13:56Z INFO JobDispatcher] Start renew job request 204 for job bb4a2341-4547-529b-0b61-d4e572cb554d.
+[2025-01-05 19:13:57Z INFO JobDispatcher] Successfully renew job request 204, job is valid till 2025-01-05 19:23:57
+[2025-01-05 19:13:57Z INFO HostContext] Well known directory 'Bin': 'C:\myPrivateRepo\GH_Actions_Repo\actions-runner\bin'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper] Starting process:
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   File name: 'C:\myPrivateRepo\GH_Actions_Repo\actions-runner\bin\Runner.Worker.exe'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2740 1920'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Working directory: 'C:\myPrivateRepo\GH_Actions_Repo\actions-runner\bin'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2025-01-05 19:13:57Z INFO ProcessInvokerWrapper] Process started with process id 38944, waiting for process exit.
+[2025-01-05 19:13:57Z INFO JobDispatcher] Send job request message to worker for job bb4a2341-4547-529b-0b61-d4e572cb554d.
+[2025-01-05 19:13:57Z INFO ProcessChannel] Sending message of length 22524, with hash '50afb6012dce00a8f21c0c219b089432b2b590df3b059c49d11dd6736a3dd2ed'
+[2025-01-05 19:13:57Z INFO JobNotification] Entering JobStarted Notification
+[2025-01-05 19:13:57Z INFO JobNotification] Entering StartMonitor
+[2025-01-05 19:14:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-01-05 19:14:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-01-05 19:14:36Z INFO ProcessInvokerWrapper] Finished process 38944 with exit code 100, and elapsed time 00:00:39.6772257.
+[2025-01-05 19:14:36Z INFO JobDispatcher] Worker finished for job bb4a2341-4547-529b-0b61-d4e572cb554d. Code: 100
+[2025-01-05 19:14:36Z INFO JobDispatcher] finish job request for job bb4a2341-4547-529b-0b61-d4e572cb554d with result: Succeeded
+[2025-01-05 19:14:36Z INFO Terminal] WRITE LINE: 2025-01-05 19:14:36Z: Job Run on stage env completed with result: Succeeded
+[2025-01-05 19:14:36Z INFO JobDispatcher] Stop renew job request for job bb4a2341-4547-529b-0b61-d4e572cb554d.
+[2025-01-05 19:14:36Z INFO JobDispatcher] job renew has been cancelled, stop renew job request 204.
+[2025-01-05 19:14:36Z INFO JobNotification] Entering JobCompleted Notification
+[2025-01-05 19:14:36Z INFO JobNotification] Entering EndMonitor
+[2025-01-05 19:14:36Z INFO MessageListener] Received job status event. JobState: Online
+[2025-01-05 19:19:00Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\myPrivateRepo\GH_Actions_Repo\actions-runner\.credentials_rsaparams
+[2025-01-05 19:19:00Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-01-05 19:24:03Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\myPrivateRepo\GH_Actions_Repo\actions-runner\.credentials_rsaparams
+[2025-01-05 19:24:03Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
