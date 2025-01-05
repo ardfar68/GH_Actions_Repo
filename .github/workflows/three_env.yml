@@ -18,7 +18,7 @@ jobs:
 
   Stage_environment:
     name: Run on stage env
-    runs-on: [self-hosted, label-1]
+    runs-on: self-hosted
     environment: Stage
     needs: Dev_environment
     steps:
