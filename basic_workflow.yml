@@ -9,8 +9,8 @@ on:
         type: string
       city:
         description: "Favorite city"
-        default: "Tupelo"
         required: true
+        default: "Tupelo"
         type: choice
         options:
           - New York
@@ -22,14 +22,12 @@ on:
         type: boolean
 jobs:
   greet:
-    name: "Greetings, Program"
+    name: "Greetings, Program!"
     runs-on:
       - ubuntu-latest
     steps:
       - name: Send greeting
         run: |
-          echo "Hello ${{ github.event.inputs.name || 'World' }}"
-          echo "Your favorite city is ${{ github.event.inputs.city || 'Tupelo'}}"
-          echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue || 'true' }}"
-  
-  
+          echo "Hello ${{ github.event.inputs.name }}"
+          echo "Your favorite city is ${{ github.event.inputs.city }}"
+          echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
