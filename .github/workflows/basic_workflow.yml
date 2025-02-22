@@ -2,13 +2,15 @@ name: Basic Workflow
 on:
   workflow_dispatch:
     inputs:
-      ardevan:
-        
+      my_car_info:
+        description: "Custom message"
+        required: false
+        default: "red"
+        type: string
       email:
         description: "User email"
         required: false
         type: string
-
       name:
         description: "Person to greet"
         default: "World"
