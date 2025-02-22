@@ -6,16 +6,16 @@ on:
         type: choice
         description: "Base URL for the system tests"
         required: true
+        default: "https://system-test-soak.us.qlik-stage.com"
         options:
           - "https://system-test-peach.us.qlik-stage.com"
           - "https://system-test-soak.us.qlik-stage.com"
           - "https://system-test-wario.us.qlik-stage.com"
           - "https://sta-byok.us.qlik-stage.com"
-        default: "https://system-test-soak.us.qlik-stage.com"
       my_car_info:
         description: "info about my car"
         required: false
-        default: "red"
+        # default: "red"
         type: string
       email:
         description: "User email"
@@ -50,3 +50,4 @@ jobs:
           echo "Hello ${{ github.event.inputs.base_url }}"
           echo "Your favorite city is ${{ github.event.inputs.city }}"
           echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
+          echo "Hello ${{ github.event.inputs.my_car_info }}"
