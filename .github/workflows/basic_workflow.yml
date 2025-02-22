@@ -3,7 +3,6 @@ on:
   workflow_dispatch:
     inputs:
       my_car_info:
-        description: "Custom message"
         required: false
         default: "red"
         type: string
