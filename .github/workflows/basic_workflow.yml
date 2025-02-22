@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       my_car_info:
-        description: "info about my car"
+        #description: "info about my car"
         #required: false
         #default: "red"
         #type: string
