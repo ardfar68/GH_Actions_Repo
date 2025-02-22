@@ -13,9 +13,9 @@ on:
           - "https://system-test-wario.us.qlik-stage.com"
           - "https://sta-byok.us.qlik-stage.com"
       my_car_info:
-        description: "info about my car"
+        description: info about my car
         required: false
-        # default: "red"
+        default: volvo
         type: string
       email:
         description: "User email"
@@ -37,7 +37,7 @@ on:
           - Tupelo
       fav-color-blue:
         description: "Is your favorite color blue"
-        required: true
+        required: false
         type: boolean
 jobs:
   greet:
