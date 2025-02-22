@@ -31,7 +31,7 @@ on:
         type: boolean
 jobs:
   greet:
-    # name: "Greetings, Program!"
+    name: "Greetings, Program!"
     runs-on:
       - ubuntu-latest
     steps:
