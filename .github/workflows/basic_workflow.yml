@@ -2,6 +2,16 @@ name: Basic Workflow
 on:
   workflow_dispatch:
     inputs:
+      base_url:
+        type: choice
+        description: "Base URL for the system tests"
+        required: true
+        options:
+          - "https://system-test-peach.us.qlik-stage.com"
+          - "https://system-test-soak.us.qlik-stage.com"
+          - "https://system-test-wario.us.qlik-stage.com"
+          - "https://sta-byok.us.qlik-stage.com"
+        default: "https://system-test-soak.us.qlik-stage.com"
       my_car_info:
         description: "info about my car"
         required: false
@@ -37,6 +47,6 @@ jobs:
     steps:
       - name: Send greeting
         run: |
-          echo "Hello ${{ github.event.inputs.name }}"
+          echo "Hello ${{ github.event.inputs.base_url }}"
           echo "Your favorite city is ${{ github.event.inputs.city }}"
           echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
