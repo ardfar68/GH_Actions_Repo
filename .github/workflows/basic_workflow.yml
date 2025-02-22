@@ -35,7 +35,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     steps:
-      - name:
+      - name: Send greeting
         run: |
           echo "Hello ${{ github.event.inputs.name }}"
           echo "Your favorite city is ${{ github.event.inputs.city }}"
