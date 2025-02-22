@@ -24,5 +24,3 @@ jobs:
     steps:
       - name: Output for Job 2
         run: echo "Hello from Job 2"
-      - name: Make Job 2 fail
-        run: exit 1
