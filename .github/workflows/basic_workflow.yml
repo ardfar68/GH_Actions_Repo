@@ -7,12 +7,10 @@ on:
         default: "red"
         type: string
       email:
-        description: "User email"
         required: false
         default: asf@qlik.com
         type: string
       name:
-        description: "Person to greet"
         default: "World"
         required: true
         type: string
