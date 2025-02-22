@@ -2,9 +2,11 @@ name: Basic Workflow
 on:
   workflow_dispatch:
     inputs:
+      ardevan:
+        
       email:
         description: "User email"
-        required: true
+        required: false
         type: string
 
       name:
