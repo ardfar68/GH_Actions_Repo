@@ -5,8 +5,8 @@ on:
       my_car_info:
         #description: "info about my car"
         #required: false
-        #default: "red"
-        #type: string
+        default: "red"
+        # type: string
       email:
         description: "User email"
         required: false
