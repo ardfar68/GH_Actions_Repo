@@ -2,10 +2,11 @@ name: Basic Workflow
 on:
   workflow_dispatch:
     inputs:
-      description: "Person to greet"
-      default: "World"
-      required: true
-      type: string
+      myname:
+        description: "Person to greet"
+        default: "World"
+        required: true
+        type: string
       city:
         description: "Favorite city"
         required: true
