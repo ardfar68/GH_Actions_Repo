@@ -36,8 +36,8 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     outputs:
-      Output1: $ {{ steps.step1.outputs.step1value }}
-      Output2: $ {{ steps.step1.outputs.step2value }}
+      output1: $ {{ steps.step1.outputs.step1value }}
+      output2: $ {{ steps.step1.outputs.step2value }}
 
     steps:
       - name: Step 1
