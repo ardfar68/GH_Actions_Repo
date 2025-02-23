@@ -38,7 +38,11 @@ jobs:
     steps:
       - name: Step 1
         id: step1
-        run: echo "step1value=hello" >> GITHUB_OUTPUT
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo "step1value=hello" >> GITHUB_OUTPUT
+          run: echo "GITHUB_CONTEXT"
 
 
 
