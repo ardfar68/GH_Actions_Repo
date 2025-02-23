@@ -50,8 +50,11 @@ jobs:
   job3:
     runs-on: ubuntu-latest
     needs: job2
+    env:
+      job3var: defined within job 3
     steps:
       - name: print out from job 2
         run: |
           echo ${{needs.job2.outputs.ardi1}} ${{needs.job2.outputs.ardi2}}
           echo $VAR1
+          echo $job3var
