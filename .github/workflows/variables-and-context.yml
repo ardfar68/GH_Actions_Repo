@@ -25,7 +25,7 @@ jobs:
         run: echo "GITHUB_CONTEXT"
         # run: echo %GITHUB_CONTEXT%
         # run: echo env.GITHUB_CONTEXT
-      - name: "Step 2: Print input name"
+      - name: "Step 2: Print from GH context obj"
         run: |
           echo "Input name in the wf is: ${{ github.event.inputs.name }}"
           echo "Repo full name is: ${{ github.event.repository.full_name }}"
@@ -47,6 +47,8 @@ jobs:
         run: |
           echo "step1value=hello" >> $GITHUB_OUTPUT
           echo $VAR1
+          echo ${{env.VAR1}}
+
       - name: Step 2
         id: step2
         run: |
