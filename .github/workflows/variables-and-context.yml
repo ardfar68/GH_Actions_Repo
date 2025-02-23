@@ -52,4 +52,4 @@ jobs:
     needs: job2
     steps:
       - name: print out from job 2
-        run: echo ${{ needs.job2.outputs.output1 }} ${{ needs.job2.outputs.output2 }}
+        run: echo ${{needs.job2.outputs.output1}} ${{needs.job2.outputs.output2}}
