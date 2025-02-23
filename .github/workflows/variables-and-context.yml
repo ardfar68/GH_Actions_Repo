@@ -27,12 +27,21 @@ jobs:
         # run: echo env.GITHUB_CONTEXT
       - name: "Step 2: Print input name"
         run: |
-          echo "Input name in the wf is ${{ github.event.inputs.name }}"
-          echo "Input name in the wf is ${{ github.event.repository.full_name }}"
-          echo "Input name in the wf is ${{ github.event.repository.branches_url }}"
-          echo "Input name in the wf is ${{ github.event.repository.created_at }}"
-          echo "Input name in the wf is ${{ github.event.repository.name }}"
+          echo "Input name in the wf is: ${{ github.event.inputs.name }}"
+          echo "Repo full name is: ${{ github.event.repository.full_name }}"
+          echo "Repo branch url is: ${{ github.event.repository.branches_url }}"
+          echo "Repo created date is: ${{ github.event.repository.created_at }}"
+          echo "Repo name is: ${{ github.event.repository.name }}"
+        
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        id: step1
+        run: echo "step1value=hello" >> GITHUB_OUTPUT
 
 
 
+
+ 
   
