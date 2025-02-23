@@ -41,11 +41,15 @@ jobs:
 
     steps:
       - name: Step 1
+        env:
+          VAR1: in job2 step 1
         id: step1
         run: echo "step1value=hello" >> $GITHUB_OUTPUT
       - name: Step 2
         id: step2
-        run: echo "step2value=world" >> $GITHUB_OUTPUT
+        run: |
+          echo "step2value=world" >> $GITHUB_OUTPUT
+          echo $VAR1
   
   job3:
     runs-on: ubuntu-latest
@@ -58,8 +62,6 @@ jobs:
           job3_Steps_Var: defined within job 3 step
           VAR2: my step var
           job3var: on step level
-
-
         run: |
           echo ${{needs.job2.outputs.ardi1}} ${{needs.job2.outputs.ardi2}}
           echo $VAR1
