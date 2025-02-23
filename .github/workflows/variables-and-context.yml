@@ -52,4 +52,6 @@ jobs:
     needs: job2
     steps:
       - name: print out from job 2
-        run: echo ${{needs.job2.outputs.ardi1}} ${{needs.job2.outputs.ardi2}}
+        run: |
+          echo ${{needs.job2.outputs.ardi1}} ${{needs.job2.outputs.ardi2}}
+          echo VAR1
