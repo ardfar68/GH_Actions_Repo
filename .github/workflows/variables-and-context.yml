@@ -51,16 +51,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: job2
     env:
-      job3var: defined within job 3
+      job3var: on job level
     steps:
       - name: print out from job 2
         env:
           job3_Steps_Var: defined within job 3 step
           VAR2: my step var
+          job3var: on step level
+
 
         run: |
           echo ${{needs.job2.outputs.ardi1}} ${{needs.job2.outputs.ardi2}}
           echo $VAR1
           echo $VAR2
-          echo $job3var
           echo $job3_Steps_Var
+          echo $job3var
+          echo $job3var
