@@ -32,7 +32,7 @@ jobs:
           echo "Repo branch url is: ${{ github.event.repository.branches_url }}"
           echo "Repo created date is: ${{ github.event.repository.created_at }}"
           echo "Repo name is: ${{ github.event.repository.name }}"
-          run: echo "The reference for this workflow run is: ${{ github.ref }}"
+          echo "The reference for this workflow run is: ${{ github.ref }}"
         
   job2:
     runs-on: ubuntu-latest
