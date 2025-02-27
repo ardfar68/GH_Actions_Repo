@@ -47,6 +47,7 @@ jobs:
       ardi1: ${{steps.step1.outputs.step1value}}
       ardi2: ${{steps.step2.outputs.step2value}}
       ardi3: ${{steps.step3.outputs.ardiVar}}
+      job_name: job2
 
     steps:
       - name: Step 1
@@ -91,4 +92,4 @@ jobs:
           echo $job3var
           echo $job3var
           echo "The reference for this workflow run is: ${{ github.ref }}"
-          echo "This is the value defined in a variable from ${{needs.job2}} which is: ${{needs.job2.outputs.ardi3}}"
+          echo "This is the value defined in a variable from ${{needs.job2.job_name}} which is: ${{needs.job2.outputs.ardi3}}"
