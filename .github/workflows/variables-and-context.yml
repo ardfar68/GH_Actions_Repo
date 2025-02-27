@@ -36,6 +36,7 @@ jobs:
           echo "Printing out GITHUB_REF#refs/heads: ${GITHUB_REF#refs/heads/}"
           echo "Printing out GITHUB_REF#: ${GITHUB_REF#}"
           echo "Printing out GITHUB_REF: ${GITHUB_REF}"
+          echo "Just test"
 
         
   job2:
