@@ -1,11 +1,13 @@
 name: Variables and Context
 on: 
+  push: 
   workflow_dispatch: 
     inputs:
       name:
         description: Person to greet
         default: World
         required: true
+  
 
 env:
   VAR1: myworkflowvar1
