@@ -33,10 +33,9 @@ jobs:
           echo "Repo created date is: ${{ github.event.repository.created_at }}"
           echo "Repo name is: ${{ github.event.repository.name }}"
           echo "The reference for this workflow run is: ${{ github.ref }}"
-          echo "The branch name is ${GITHUB_REF#refs/heads/}"
-          echo "The branch name is ${GITHUB_REF}"
-          echo "The branch name is ${GITHUB_REF#}"
-
+          echo "Printing out GITHUB_REF#refs/heads: ${GITHUB_REF#refs/heads/}"
+          echo "Printing out GITHUB_REF#: ${GITHUB_REF#}"
+          echo "Printing out GITHUB_REF: ${GITHUB_REF}"
 
         
   job2:
