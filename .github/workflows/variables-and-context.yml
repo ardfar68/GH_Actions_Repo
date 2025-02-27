@@ -83,7 +83,4 @@ jobs:
           echo $job3_Steps_Var
           echo $job3var
           echo $job3var
-<<<<<<< Updated upstream
-=======
           run: echo "The reference for this workflow run is: ${{ github.ref }}"
->>>>>>> Stashed changes
