@@ -46,6 +46,7 @@ jobs:
     outputs:    
       ardi1: ${{steps.step1.outputs.step1value}}
       ardi2: ${{steps.step2.outputs.step2value}}
+      ardi3: ${{steps.step3.outputs.ardiVar}}
 
     steps:
       - name: Step 1
@@ -57,13 +58,19 @@ jobs:
           # 2 ways of printing var
           echo $VAR1
           echo ${{env.VAR1}}
-      
 
       - name: Step 2
         id: step2
         run: |
           echo "step2value=world" >> $GITHUB_OUTPUT
           echo $VAR1
+      
+      - name: step 3
+        id: step3
+        run: |
+          echo "ardiVar=I'm writing this in job 2 step 3" >> $GITHUB_OUTPUT
+
+
   
   job3:
     runs-on: ubuntu-latest
@@ -83,4 +90,5 @@ jobs:
           echo $job3_Steps_Var
           echo $job3var
           echo $job3var
-          run: echo "The reference for this workflow run is: ${{ github.ref }}"
+          echo "The reference for this workflow run is: ${{ github.ref }}"
+          echo "This is the value defined in a variable from ${{needs.job2}} which is: ${{needs.job2.outputs.ardi3}}"
