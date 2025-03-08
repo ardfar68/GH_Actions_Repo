@@ -9,8 +9,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-      time: "22:37"
+      time: "22:44"
       timezone: "UTC"
+    
+    dependencies:
+      - "@babel/eslint-parser"
+      - "@wdio/spec-reporter"
+      
     groups:
       minor-patch:
         update-types:
