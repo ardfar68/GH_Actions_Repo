@@ -17,7 +17,7 @@ updates:
       - npm-qlik
     schedule:
       interval: "daily"
-      time: "22:05"
+      time: "22:26"
       timezone: "UTC"
     groups:
       minor-patch:
