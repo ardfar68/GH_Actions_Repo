@@ -7,11 +7,9 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
-    registries:
-      - npm-qlik
     schedule:
       interval: "daily"
-      time: "22:31"
+      time: "22:37"
       timezone: "UTC"
     groups:
       minor-patch:
