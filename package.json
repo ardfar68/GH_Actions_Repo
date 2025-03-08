@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@babel/eslint-parser": "7.19.1",
+    "@babel/eslint-parser": "7.15.0",
     "@babel/preset-env": "^7.19.3",
     "@babel/register": "^7.18.9",
     "@opentelemetry/api": "^1.7.0",
@@ -61,7 +61,7 @@
     "@wdio/globals": "9.5.7",
     "@wdio/jasmine-framework": "9.5.7",
     "@wdio/local-runner": "9.5.7",
-    "@wdio/spec-reporter": "9.5.0",
+    "@wdio/spec-reporter": "8.2.1",
     "@wdio/visual-service": "6.3.1",
     "adm-zip": "^0.4.13",
     "asciiart-logo": "0.2.6",

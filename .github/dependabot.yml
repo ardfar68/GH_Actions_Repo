@@ -4,12 +4,6 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
-registries:
-  npm-qlik:
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    username: svc-pipeline-2
-    password: "${{secrets.GIT_GITHUB_COM_PASSWORD}}"
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
@@ -17,7 +11,7 @@ updates:
       - npm-qlik
     schedule:
       interval: "daily"
-      time: "22:26"
+      time: "22:31"
       timezone: "UTC"
     groups:
       minor-patch:
