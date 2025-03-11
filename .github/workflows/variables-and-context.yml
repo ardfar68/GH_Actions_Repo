@@ -1,6 +1,8 @@
 name: Variables and Context
 on: 
-  push: 
+  push:
+    branches:
+      asf_private
   workflow_dispatch: 
     inputs:
       name:
@@ -8,7 +10,6 @@ on:
         default: World
         required: true
   
-
 env:
   VAR1: myworkflowvar1
   VAR2: myworkflowvar2
@@ -39,8 +40,7 @@ jobs:
           echo "Printing out GITHUB_REF#: ${GITHUB_REF#}"
           echo "Printing out GITHUB_REF: ${GITHUB_REF}"
           echo "Just test"
-
-        
+     
   job2:
     runs-on: ubuntu-latest
     outputs:    
@@ -69,8 +69,6 @@ jobs:
         id: step3
         run: |
           echo "ardiVar=I'm writing this in job 2 step 3" >> $GITHUB_OUTPUT
-
-
   
   job3:
     runs-on: ubuntu-latest
@@ -92,3 +90,4 @@ jobs:
           echo $job3var
           echo "The reference for this workflow run is: ${{ github.ref }}"
           echo "This is the value defined in a variable from job2 which is: ${{needs.job2.outputs.ardi3}}"
+          echo "This is job3 var:" $job3var
