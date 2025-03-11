@@ -7,7 +7,7 @@ on:
     inputs:
       name:
         description: Person to greet
-        default: World
+        default: World2
         required: true
   
 env:
