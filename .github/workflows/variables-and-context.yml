@@ -2,12 +2,12 @@ name: Variables and Context
 on: 
   push:
     branches:
-      'asf_private1'
+      dev
   workflow_dispatch: 
     inputs:
       name:
         description: Person to greet
-        default: branch1
+        default: main
         required: true
   
 env:
