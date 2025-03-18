@@ -50,4 +50,4 @@ jobs:
           echo "Hello ${{ github.event.inputs.base_url }}"
           echo "Your favorite city is ${{ github.event.inputs.city }}"
           echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
-          echo "Hello ${{ github.event.inputs.my_car_info }}"
+          echo "Hello input: ${{ github.event.inputs.my_car_info }}"
