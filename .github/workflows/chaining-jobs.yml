@@ -9,7 +9,6 @@ on:
     
 jobs:
   
-  
   job-1:
     name: Job 1
     runs-on: ubuntu-latest
@@ -25,7 +24,7 @@ jobs:
       - name: Output for Job 2
         run: echo "Hello from Job 2"
       - name: Make Job 2 fail
-        run: exit 1
+        run: exit 0
   
   job-3:
     name: Job 3
