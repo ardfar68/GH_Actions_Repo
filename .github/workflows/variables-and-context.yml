@@ -64,7 +64,8 @@ jobs:
         run: |
           echo "step2value=world" >> $GITHUB_OUTPUT
           echo $VAR1
-      
+          echo "hello: $VAR1"
+
       - name: step 3
         id: step3
         run: |
