@@ -2,7 +2,7 @@ name: Variables and Context
 on: 
   push:
     branches:
-      'asf_private1'
+      'main'
   workflow_dispatch: 
     inputs:
       name:
