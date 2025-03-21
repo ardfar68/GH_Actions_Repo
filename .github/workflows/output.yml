@@ -11,10 +11,10 @@ jobs:
         id: step1
         run: |
           echo "my github env=Hello GH env from step 1" >> $GITHUB_ENV
-          echo "my github output=Hello GH output from step 1" >> $GITHUB_OUTPUT
+          echo "my_github_output=Hello GH output from step 1" >> $GITHUB_OUTPUT
 
 
       - name: Use the step output
         run: | 
           echo Alt 1_Step 1 said: $my github env
-          echo Alt 2_Step 1 said: "${{ steps.step1.outputs.my github output }}"
+          echo Alt 2_Step 1 said: ${{ steps.step1.outputs.my_github_output }}
