@@ -1,9 +1,10 @@
-name: Step Output Example
+name: test step outputs
 
-on: push
+on: 
+  push
 
 jobs:
-  example-job:
+  output-job:
     runs-on: ubuntu-latest
     steps:
       - name: Generate a step output
@@ -12,3 +13,4 @@ jobs:
 
       - name: Use the step output
         run: echo "Step 1 said:" $MY_OUTPUT
+        run: echo "Step 1 said:" ${{ steps.step1.outputs.MY_OUTPUT }}
