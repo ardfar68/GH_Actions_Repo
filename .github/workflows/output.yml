@@ -12,5 +12,6 @@ jobs:
         run: echo "MY_OUTPUT=Hello from step 1" >> $GITHUB_ENV
 
       - name: Use the step output
-        run: echo "Step 1 said:" $MY_OUTPUT
-        run: echo "Step 1 said:" ${{ steps.step1.outputs.MY_OUTPUT }}
+        run: | 
+          echo Alt 1_Step 1 said: $MY_OUTPUT
+          echo Alt 2_Step 1 said: ${{ steps.step1.outputs.MY_OUTPUT }}
