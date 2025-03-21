@@ -9,9 +9,12 @@ jobs:
     steps:
       - name: Generate a step output
         id: step1
-        run: echo "MY_OUTPUT=Hello from step 1" >> $GITHUB_OUTPUT
+        run: |
+          echo "my_github_env=Hello GH env from step 1" >> $GITHUB_ENV
+          echo "my_github_output=Hello GH output from step 1" >> $GITHUB_OUTPUT
+
 
       - name: Use the step output
         run: | 
-          echo Alt 1_Step 1 said: $MY_OUTPUT
-          echo Alt 2_Step 1 said: ${{ steps.step1.outputs.MY_OUTPUT }}
+          echo Alt 1_Step 1 said: $my_github_env
+          echo Alt 2_Step 1 said: ${{ steps.step1.outputs.my_github_output }}
