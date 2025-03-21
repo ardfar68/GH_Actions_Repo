@@ -14,3 +14,4 @@ jobs:
       - name: Use the step output
         run: | 
           echo "Alt 1_Step 1 said: $MY_OUTPUT"
+          echo Alt 2_Step 1 said: ${{ steps.step1.outputs.MY_OUTPUT }}
