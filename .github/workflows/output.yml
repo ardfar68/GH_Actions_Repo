@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Generate a step output
         id: step1
-        run: echo "MY_OUTPUT=Hello from step 1" >> $GITHUB_ENV
+        run: echo "MY_OUTPUT=Hello from step 1" >> $GITHUB_OUTPUT
 
       - name: Use the step output
         run: | 
