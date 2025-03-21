@@ -1,0 +1,14 @@
+name: Step Output Example
+
+on: push
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate a step output
+        id: step1
+        run: echo "MY_OUTPUT=Hello from step 1" >> $GITHUB_ENV
+
+      - name: Use the step output
+        run: echo "Step 1 said:" $MY_OUTPUT
