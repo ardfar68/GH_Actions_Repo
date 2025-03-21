@@ -16,5 +16,5 @@ jobs:
 
       - name: Use the step output
         run: | 
-          echo "Alt 1_Step 1 said: $my_github_env"
-          echo "Alt 2_Step 1 said: ${{ steps.step1.outputs.my_github_output }}"
+          echo "Alt 1_Step 1 said:" $my_github_env"
+          echo "Alt 2_Step 1 said:" ${{ steps.step1.outputs.my_github_output }}"
