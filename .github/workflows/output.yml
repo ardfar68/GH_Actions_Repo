@@ -35,4 +35,4 @@ jobs:
       - name: print context object
         run: |
           echo "Contents of github_context.json:"
-          cat github_context.json | jq
+          cat github_context.json
