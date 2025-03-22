@@ -24,6 +24,6 @@ jobs:
 
       - name: Github context object
         run: |
-          echo "3: the content of gh context object:" ${{ toJSON(github) }}
+          echo "3: the content of gh context object: ${{ toJSON(github) }}"
           
 
