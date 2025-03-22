@@ -26,6 +26,6 @@ jobs:
       - name: Github context object
         run: |
           echo "${{ toJSON(github) }}" > github_context.json
-          echo github_context.json | jq
+          echo $github_context.json | jq
           
 
