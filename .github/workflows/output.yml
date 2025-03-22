@@ -26,6 +26,6 @@ jobs:
         run: |
           echo "3: the content of gh context object: ${{ toJSON(github) }}"
           echo "${{ toJSON(github) }}" > github_context.json
-          echo github_context.json
+          echo github_context.json | jq
           
 
