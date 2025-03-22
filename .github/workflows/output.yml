@@ -1,4 +1,3 @@
-# echo "3: the content of gh context object: ${{ toJSON(github) }} | jq"
 name: test step outputs
 
 on: 
@@ -23,7 +22,8 @@ jobs:
           echo "${{ toJSON(github) }} | jq"
 
       - name: Github context object
-        run: | 
+        run: |
+          echo "3: the content of gh context object:" ${{ toJSON(github) }}
           echo "${{ toJSON(github) }}" > github_context.json
-          jq . github_context.json
+          echo github_context.json
 
