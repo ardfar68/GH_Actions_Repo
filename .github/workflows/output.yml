@@ -10,11 +10,14 @@ jobs:
       - name: Generate a step output
         id: step1
         run: |
+          # "$GITHUB_ENV → A file used to set environment variables across steps in the same job"
+          # "$GITHUB_OUTPUT → A file used to define output variables for a step, which can be accessed by later steps"
           echo my_github_env=Hello GH env from step 1 >> $GITHUB_ENV
           echo my_github_output=Hello GH output from step 1 >> $GITHUB_OUTPUT
 
 
       - name: Use the step output
         run: | 
-          echo "Alt 1_Step 1 said:" $my_github_env
-          echo "Alt 2_Step 1 said:" ${{ steps.step1.outputs.my_github_output }}
+          echo "1: the content of environment var:" $my_github_env
+          echo "2: the content of output file:" ${{ steps.step1.outputs.my_github_output }}
+          echo "3: the content of gh context object:" ${{ toJson(github) }}
