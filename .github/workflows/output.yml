@@ -18,4 +18,4 @@ jobs:
         run: | 
           echo "1: the content of environment var:" $my_github_env
           echo "2: the content of output file:" ${{ steps.step1.outputs.my_github_output }}
-          echo "3: the content of gh context object: ${{ toJSON(github) }} | jq"
+          echo "3: the content of gh context object: ${{ toJSON(github) }}" | jq
