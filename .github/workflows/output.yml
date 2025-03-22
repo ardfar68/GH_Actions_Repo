@@ -26,6 +26,11 @@ jobs:
       - name: store context object
         run: |
           echo "${{ toJSON(github) }}" > github_context.json
+      
+      - name: install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install jq
           
       - name: print context object
         run: |
