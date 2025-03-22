@@ -1,3 +1,6 @@
+# echo "${{ toJSON(github) }}" > github_context.json
+# echo github_context.json
+
 name: test step outputs
 
 on: 
@@ -21,8 +24,6 @@ jobs:
 
       - name: Github context object
         run: |
-          CONTEXT="${{ toJSON(github) }}"
-          echo "3: the content of gh context object:" $CONTEXT
-          echo "$CONTEXT" > github_context.json
-          cat github_context.json
+          echo "3: the content of gh context object:" ${{ toJSON(github) }}
+          
 
