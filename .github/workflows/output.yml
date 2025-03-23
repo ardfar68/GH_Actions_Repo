@@ -36,16 +36,15 @@ jobs:
           echo "Contents of github_context.json:"
           cat github_context.json
 
-      - name: print env variable at wf-level
+      - name: print env variable declared at wf-level
         run: | 
           echo "$env_var_at_wf_level_1"
           echo "$env_var_at_wf_level_2"
-
-
-      - name: print env variable at step-level
         env:
           env_var_at_step_level_1: "${{ toJSON(github) }}"
           env_var_at_step_level_2: "this is another variable at step level"
+
+      - name: print env variable declared at step-level
         run: |
           echo "$env_var_at_step_level_1"
           echo "$env_var_at_step_level_2"
