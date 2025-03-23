@@ -28,36 +28,36 @@ jobs:
           echo my_github_env=Hello GH env from step 1 >> $GITHUB_ENV
           echo my_github_output=Hello GH output from step 1 >> $GITHUB_OUTPUT
 
-      - name: Print GITHUB_ENV and GITHUB_OUTPUT
-        run: | 
-          echo "the content of GITHUB_ENV:" $my_github_env
-          echo "the content of GITHUB_OUTPUT:" ${{ steps.step1.outputs.my_github_output }}
+      # - name: Print GITHUB_ENV and GITHUB_OUTPUT
+      #   run: | 
+      #     echo "the content of GITHUB_ENV:" $my_github_env
+      #     echo "the content of GITHUB_OUTPUT:" ${{ steps.step1.outputs.my_github_output }}
 
-      - name: Store context object
-        run: |
-          echo "${{ toJSON(github) }}" > github_context.json
+      # - name: Store context object
+      #   run: |
+      #     echo "${{ toJSON(github) }}" > github_context.json
           
-      - name: Print context object
-        run: |
-          echo "This will print the content of github_context.json:"
-          cat github_context.json
+      # - name: Print context object
+      #   run: |
+      #     echo "This will print the content of github_context.json:"
+      #     cat github_context.json
 
-      - name: Declare and print env in same step
-        env: # only accessible in same step
-          env_var_at_step_level_1: "${{ toJSON(github) }}"
-          env_var_at_step_level_2: "this is another variable at step level"
-        run: | 
-          echo "at step level 1: $env_var_at_step_level_1"
-          echo "at step level 2: $env_var_at_step_level_2"
+      # - name: Declare and print env in same step
+      #   env: # only accessible in same step
+      #     env_var_at_step_level_1: "${{ toJSON(github) }}"
+      #     env_var_at_step_level_2: "this is another variable at step level"
+      #   run: | 
+      #     echo "at step level 1: $env_var_at_step_level_1"
+      #     echo "at step level 2: $env_var_at_step_level_2"
 
-      - name: Print env variable at wf & job level
-        run: |
-          echo "at wf level 1: $env_var_at_wf_level_1"
-          echo "at wf level 2: $env_var_at_wf_level_2"
-          echo ""
-          echo ""
-          echo "at job level 1: $env_var_at_job_level_1"
-          echo "at job level 2: $env_var_at_job_level_2"
+      # - name: Print env variable at wf & job level
+      #   run: |
+      #     echo "at wf level 1: $env_var_at_wf_level_1"
+      #     echo "at wf level 2: $env_var_at_wf_level_2"
+      #     echo ""
+      #     echo ""
+      #     echo "at job level 1: $env_var_at_job_level_1"
+      #     echo "at job level 2: $env_var_at_job_level_2"
         
 
 
