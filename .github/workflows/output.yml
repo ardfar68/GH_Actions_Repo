@@ -34,3 +34,6 @@ jobs:
         run: |
           echo "Contents of github_context.json:"
           cat github_context.json
+
+      - name: print env variable
+        run: echo "GITHUB_CONTEXT"
