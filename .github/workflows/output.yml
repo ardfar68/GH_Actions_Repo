@@ -8,7 +8,7 @@ on:
   push
 
 env:
-  GITHUB_CONTEXT: ${{ toJSON(github) }}
+  env_var_at_wf_level: ${{ toJSON(github) }}
 
 jobs:
   output-job:
@@ -35,5 +35,13 @@ jobs:
           echo "Contents of github_context.json:"
           cat github_context.json
 
-      - name: print env variable
-        run: echo "$GITHUB_CONTEXT"
+      - name: print env variable at wf-level
+        run: echo "$env_var_at_wf_level"
+
+      - name: print env variable at step-level
+        env:
+          env_var_at_step_level: ${{ toJSON(github) }}
+        run: echo "$env_var_at_step_level"
+
+
+
