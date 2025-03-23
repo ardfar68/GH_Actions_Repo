@@ -22,7 +22,7 @@ jobs:
       env_var_at_job_level_1: ${{ toJSON(github) }}
       env_var_at_job_level_2: "this is env variable at job level"
     steps:
-      - name: Declare GH and GH_OUTPUT
+      - name: Declare GH_ENV and GH_OUTPUT
         id: step1
         run: |
           echo my_github_env=Hello GH env from step 1 >> $GITHUB_ENV
