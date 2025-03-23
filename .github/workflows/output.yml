@@ -40,7 +40,7 @@ jobs:
 
       - name: print env variable at step-level
         env:
-          env_var_at_step_level: ${{ toJSON(github) }}
+          env_var_at_step_level: "hello man"
         run: echo "$env_var_at_step_level"
 
 
