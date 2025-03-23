@@ -8,7 +8,8 @@ on:
   push
 
 env:
-  env_var_at_wf_level: ${{ toJSON(github) }}
+  env_var_at_wf_level_1: ${{ toJSON(github) }}
+  env_var_at_wf_level_2: "this is another variable at wf level"
 
 jobs:
   output-job:
@@ -36,12 +37,19 @@ jobs:
           cat github_context.json
 
       - name: print env variable at wf-level
-        run: echo "$env_var_at_wf_level"
+        run: | 
+          echo "$env_var_at_wf_level_1"
+          echo "$env_var_at_wf_level_2"
+
 
       - name: print env variable at step-level
         env:
-          env_var_at_step_level: "hello man"
-        run: echo "$env_var_at_step_level"
+          env_var_at_step_level_1: "${{ toJSON(github) }}"
+          env_var_at_step_level_2: "this is another variable at step level"
+        run: |
+          echo "$env_var_at_step_level_1"
+          echo "$env_var_at_step_level_2"
+
 
 
 
