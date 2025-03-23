@@ -7,6 +7,9 @@ name: test step outputs
 on: 
   push
 
+env:
+  GITHUB_CONTEXT: ${{ toJSON(github) }}
+
 jobs:
   output-job:
     runs-on: ubuntu-latest
@@ -20,13 +23,14 @@ jobs:
 
       - name: DecPrint GITHUB_ENV and GITHUB_OUTPUT
         run: | 
-          echo "1:  the content of environment var:" $my_github_env
+          echo "1: the content of environment var:" $my_github_env
           echo "2: the content of output file:" ${{ steps.step1.outputs.my_github_output }}
 
-    
+      - name: store context object
+        run: |
+          echo "${{ toJSON(github) }}" > github_context.json
           
       - name: print context object
         run: |
           echo "Contents of github_context.json:"
-          echo "${{ toJSON(github) }}" > github_context.json
           cat github_context.json
