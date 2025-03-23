@@ -14,6 +14,9 @@ env:
 jobs:
   output-job:
     runs-on: ubuntu-latest
+    env:
+      env_var_at_job_level_1: ${{ toJSON(github) }}
+      env_var_at_job_level_2: "this is env variable at job level"
     steps:
       - name: Declare GITHUB_ENV and GITHUB_OUTPUT
         id: step1
@@ -21,33 +24,33 @@ jobs:
           echo my_github_env=Hello GH env from step 1 >> $GITHUB_ENV
           echo my_github_output=Hello GH output from step 1 >> $GITHUB_OUTPUT
 
-
-      - name: DecPrint GITHUB_ENV and GITHUB_OUTPUT
+      - name: Print GITHUB_ENV and GITHUB_OUTPUT
         run: | 
           echo "1: the content of environment var:" $my_github_env
           echo "2: the content of output file:" ${{ steps.step1.outputs.my_github_output }}
 
-      - name: store context object
+      - name: Store context object
         run: |
           echo "${{ toJSON(github) }}" > github_context.json
           
-      - name: print context object
+      - name: Print context object
         run: |
           echo "Contents of github_context.json:"
           cat github_context.json
 
-      - name: print env variable declared at wf-level
+      - name: Print env variable declared at wf-level
         env:
           env_var_at_step_level_1: "${{ toJSON(github) }}"
           env_var_at_step_level_2: "this is another variable at step level"
         run: | 
-          echo "first run: $env_var_at_wf_level_1"
-          echo "second run: $env_var_at_wf_level_2"
-
-      - name: print env variable declared at step-level
-        run: |
-          echo "$env_var_at_step_level_1"
-          echo "$env_var_at_step_level_2"
+          echo "at wf level 1: $env_var_at_wf_level_1"
+          echo "at wf level 2: $env_var_at_wf_level_2"
+          echo ""
+          echo "at job level 1: $env_var_at_job_level_1"
+          echo "at job level 2: $env_var_at_job_level_2"
+          echo ""
+          echo "at step level 1: $env_var_at_step_level_1"
+          echo "at step level 2: $env_var_at_step_level_2"
 
 
 
