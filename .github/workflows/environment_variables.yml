@@ -2,13 +2,12 @@ name: test environment variabled
 on:
   push:
     branches: 
-      main
+      dev
   workflow_dispatch:
-  env:
-    var1: myworkflowvar1
-    VAR2: myworkflowvar2
-    VAR3: myworkflowvar3
-    VAR4: myworkflowvar4
+env:
+  var1: myworkflowvar1
+  var2: myworkflowvar2
+  var3: myworkflowvar3
 
 jobs:
   display-env:
@@ -17,12 +16,6 @@ jobs:
     steps:
       - name: Display workflow-env var
         run: |
-          echo "GITHUB_ENV: $GITHUB_ENV"
-          echo "GITHUB_OUTPUT: $GITHUB_OUTPUT"
-          echo "GITHUB_PATH: $GITHUB_PATH"
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "HOME: $HOME"
-          echo "RUNNER_OS: $RUNNER_OS"
-          echo "RUNNER_TEMP: $RUNNER_TEMP"
-          echo "RUNNER_TOOL_CACHE: $RUNNER_TOOL_CACHE"
-  
+          echo "wf env var1: $var1"
+          echo "wf env var2: $var2"
+          echo "wf env var3: $var3"
