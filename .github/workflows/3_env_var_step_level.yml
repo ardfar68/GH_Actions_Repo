@@ -4,9 +4,6 @@ on:
     branches: 
       - dev
   workflow_dispatch:
-env:
-  var1: myworkflowvar1
-  var2: myworkflowvar2
 
 jobs:
   job1:
@@ -14,18 +11,12 @@ jobs:
 
     steps:
       - name: Display wf env var using Shell Variable Expansion
+        env:
+            var1: stepLevelVar1
+            var2: stepLevelVar2
         run: |
           echo "wf env var1: $var1"
-          echo "wf env var2: $var2"
-          echo "wf env var3: $var3"
-
-      - name: Display wf env var using GH actions expression syntax
-        run: |
-          echo "wf env var1: ${{ env.var1 }}"
           echo "wf env var2: ${{ env.var2 }}"
+
      
-      - name: using if statement
-        if: ${{ always() || env.var1 == 'myworkflowvar2' }}
-        run: |
-          echo "The result of 2 * 3 is:" $((2 * 3))
-  
+     
