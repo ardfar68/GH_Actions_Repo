@@ -1,4 +1,4 @@
-name: test environment variables
+name: test env_variables step level
 on:
   push:
     branches: 
