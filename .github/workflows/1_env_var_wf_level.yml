@@ -1,4 +1,4 @@
-name: test env_variables wf level
+name: test env_variables wf level.
 on:
   push:
     branches-ignore:

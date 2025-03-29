@@ -1,4 +1,4 @@
-name: test env_variables job level
+name: test env_variables job level.
 on:
   push:
     branches: 
