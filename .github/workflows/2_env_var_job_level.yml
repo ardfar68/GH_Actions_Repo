@@ -31,7 +31,7 @@ jobs:
           echo "wf env var2: $var2"
      
       - name: using if statement
-        if: ${{ always() || env.var1 == 'myworkflowvar2' }}
+        if: ${{ always() || env.var1 == 'jobLevelVar2' }}
         run: |
           echo "The result of 2 * 3 is:" $((2 * 3))
   
