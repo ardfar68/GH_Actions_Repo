@@ -17,7 +17,6 @@ jobs:
         run: |
           echo "wf env var1: $var1"
           echo "wf env var2: $var2"
-          echo "wf env var3: $var3"
 
       - name: Display wf_level_env_var using GH actions expression syntax
         run: |
