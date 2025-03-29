@@ -8,8 +8,9 @@
 name: test step outputs
 
 on: 
-  push
-
+  push:
+    branches-ignore:
+      - dev
 env:
   env_var_at_wf_level_1: ${{ toJSON(github) }}
   env_var_at_wf_level_2: "this is another variable at wf level"
