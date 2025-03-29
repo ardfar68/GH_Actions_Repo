@@ -1,8 +1,9 @@
 name: test env_variables wf level.
 on:
   push:
-    branches-ignore:
-    - dev
+    # branches-ignore:
+    branches:
+      dev
   workflow_dispatch:
 env:
   var1: workflowLevelVar1
