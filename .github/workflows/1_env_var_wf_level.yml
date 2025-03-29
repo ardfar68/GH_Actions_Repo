@@ -3,7 +3,7 @@ on:
   push:
     # branches-ignore:
     branches:
-      dev
+      - dev
   workflow_dispatch:
 env:
   var1: workflowLevelVar1
