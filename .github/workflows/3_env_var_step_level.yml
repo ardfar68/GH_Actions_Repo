@@ -10,7 +10,7 @@ env:
   var3: myworkflowvar3
 
 jobs:
-  display-env:
+  job1:
     runs-on: ubuntu-latest
 
     steps:
