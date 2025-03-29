@@ -27,7 +27,7 @@ jobs:
           echo "wf env var3: ${{ env.var3 }}"
      
       - name: using if statement
-        if: ${{ env.var1 == 'myworkflowvar1' }}
+        if: ${{ env.var1 == 'myworkflowvar2' }}
         run: |
            echo $((2 * 3))
   
