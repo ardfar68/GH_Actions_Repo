@@ -29,5 +29,5 @@ jobs:
       - name: using if statement
         if: ${{ env.var1 == 'myworkflowvar1' }}
         run: |
-           echo "$((2 * 3))"
+           echo $((2 * 3))
   
