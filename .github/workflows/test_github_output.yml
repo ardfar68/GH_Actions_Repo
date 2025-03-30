@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: my step1 name
         id: step1
-        run: echo "my_output=hello step1" >> $GITHUB_ENV
+        run: echo "my_output=hello step1" >> $GITHUB_OUTPUT
         # run: echo "my_output=hello step1" >> $GITHUB_ENV
 
       - name: access step 1 output
