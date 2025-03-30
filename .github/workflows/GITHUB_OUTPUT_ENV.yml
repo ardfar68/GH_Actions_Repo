@@ -53,12 +53,12 @@ jobs:
           echo "my_output3=from GH outputs" >> $GITHUB_OUTPUT    
 
   job4:
-    name: hello job 2
+    name: hello job 4
     runs-on: ubuntu-latest
     steps:
       - name: print out output2 from job1 step3
         id: ID1
-        run: ${{ steps.ID3.outputs.output1 }} ${{ steps.ID1.outputs.output2 }} ${{ steps.ID1.outputs.output2 }}
+        run: echo ${{ steps.ID3.outputs.output1 }} ${{ steps.ID1.outputs.output2 }} ${{ steps.ID1.outputs.output2 }}
 
    
 
