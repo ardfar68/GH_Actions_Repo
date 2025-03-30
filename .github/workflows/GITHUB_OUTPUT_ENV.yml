@@ -25,7 +25,7 @@ jobs:
       - name: my step2 name
         id: ID5
         run: |
-          echo "this is the output from another step in same job:" ${{ steps.ID3.outputs.output1 }}
+          echo "this is the output from another step in same job:" ${{ steps.ID3.outputs.my_output1 }}
 
   job2:
     name: hello job 2
