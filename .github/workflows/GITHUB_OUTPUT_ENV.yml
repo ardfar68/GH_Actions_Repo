@@ -13,19 +13,34 @@ jobs:
   job1:
     name: hello job 1
     runs-on: ubuntu-latest
+    # this is to be used in other jobs and not same job (job1)
     outputs:
       output1: ${{ steps.ID3.outputs.my_output1 }}
 
-    steps:      
-      - name: my step1 name
+    steps:     
+      - name: writing value to GITHUB_ENV
+        run: |
+          echo "my_GITHUB_ENV=This is written to GITHUB_ENV" >> $GITHUB_ENV
+
+      - name: reading content of GITHUB_ENV in 2 ways in same job
+        run: |
+          echo "step1 output:" $my_GITHUB_ENV
+          echo "step1 output:" ${{ env.my_GITHUB_ENV }}
+       
+      - name: writing value to GITHUB_OUTPUT
         id: kianosh
         run: |
           echo "my_output1=Hello" >> $GITHUB_OUTPUT
 
-      - name: my step2 name
-        id: ID5
+      - name: reading content of GITHUB_OUTPUT in same job
         run: |
           echo "this is the output from another step in same job:" ${{ steps.kianosh.outputs.my_output1 }}
+
+
+
+
+
+
 
   job2:
     name: hello job 2
