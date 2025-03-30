@@ -9,7 +9,7 @@ on:
 jobs:
 
 
-  
+
   job1:
     name: hello job 1
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "my_output1=Hello" >> $GITHUB_OUTPUT
 
-      - name: my step1 name
+      - name: my step2 name
         id: ID5
         run: |
           echo "this is the output from another step in same job:" ${{ steps.ID3.outputs.output1 }}
