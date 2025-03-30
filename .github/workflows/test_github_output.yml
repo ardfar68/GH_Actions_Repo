@@ -23,6 +23,8 @@ jobs:
         run: |
           echo "step1 output:" ${{ steps.step1.outputs.my_GITHUB_OUTPUT }}
           echo "step1 output:" $my_GITHUB_ENV
+          echo "step1 output:" ${{ env.my_GITHUB_ENV }}
+
 
       
   
