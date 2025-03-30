@@ -14,12 +14,16 @@ jobs:
     steps:
       - name: my step1 name
         id: step1
-        run: echo "my_output=hello step1" >> $GITHUB_OUTPUT
-        # run: echo "my_output=hello step1" >> $GITHUB_ENV
+        run: |
+          echo "my_GITHUB_OUTPUT=This is written to GITHUB_OUTPUT" >> $GITHUB_OUTPUT
+          echo "my_GITHUB_ENV=This is written to GITHUB_ENV" >> $GITHUB_ENV
 
       - name: access step 1 output
         id: step2
-        run: echo "step1 output:" ${{ steps.step1.outputs.my_output }}
+        run: |
+          echo "step1 output:" ${{ steps.step1.outputs.my_GITHUB_OUTPUT }}
+          echo "step1 output:" $my_GITHUB_ENV
+
       
   
  
