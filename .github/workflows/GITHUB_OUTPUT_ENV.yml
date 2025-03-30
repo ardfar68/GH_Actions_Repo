@@ -15,21 +15,8 @@ jobs:
       output2: ${{ steps.ID1.outputs.my_output2 }}
       output3: ${{ steps.ID1.outputs.my_output3 }}
 
-    steps:
+    steps:      
       - name: my step1 name
-        id: ID1
-        run: |
-          echo "my_GITHUB_OUTPUT=This is written to GITHUB_OUTPUT" >> $GITHUB_OUTPUT
-          echo "my_GITHUB_ENV=This is written to GITHUB_ENV" >> $GITHUB_ENV
-
-      - name: my step2 name
-        id: ID2
-        run: |
-          echo "step1 output:" ${{ steps.step1.outputs.my_GITHUB_OUTPUT }}
-          echo "step1 output:" $my_GITHUB_ENV
-          echo "step1 output:" ${{ env.my_GITHUB_ENV }}
-      
-      - name: my step3 name
         id: ID3
         run: |
           echo "my_output1=Hello" >> $GITHUB_OUTPUT
@@ -58,18 +45,4 @@ jobs:
     steps:
       - name: print out output2 from job1 step3
         id: ID1
-        run: echo ${{ needs.job1.outputs.output1 }} ${{ needs.job1.outputs.output2 }} ${{ needs.job1.outputs.output3 }}
-
-   
-
-
-
-         
-
-      
-  
- 
-
-   
-
-    
+        run: echo ${{ needs.job1.outputs.output1 }}
