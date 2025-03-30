@@ -8,21 +8,26 @@ on:
 
 jobs:
   job1:
-    name: this is my job 1
+    name: hello job 1
     runs-on: ubuntu-latest
 
     steps:
-      - name: test
-        run: echo "hello world1"
+      - name: step1
+        run: echo "hello step1"
+
+      - name: step2
+        run: echo "hello step2"
       
   job2:
-    name: this is my job 2
+    name: hello job 2
     runs-on: ubuntu-latest
 
     steps:
-      - name: test
-        run: echo "hello world2"
+      - name: step1
+        run: echo "hello step1"
 
+      - name: step2
+        run: echo "hello step2"
    
  
 
