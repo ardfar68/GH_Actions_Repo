@@ -21,7 +21,8 @@ jobs:
         id: ID3
         run: |
           echo "my_output1=Hello" >> $GITHUB_OUTPUT
-          echo "this is the output from another step in same job:" $(my_output1)
+          my_output1="Hello"
+          echo "this is the output from another step in same job:" $my_output1
 
       - name: my step2 name
         id: ID5
