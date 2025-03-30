@@ -12,21 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "hello step1"
+      - name: my step1 name
+        id: step1
+        run: echo "my_output=hello step1" >> $GITHUB_ENV
+        # run: echo "my_output=hello step1" >> $GITHUB_ENV
 
-      - run: echo "hello step2"
+      - name: access step 1 output
+        id: step2
+        run: echo "step1 output:" ${{ steps.step1.outputs.my_output }}
       
-  job2:
-    name: hello job 2
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: step1
-        run: echo "hello step1"
-
-      - name: step2
-        run: echo "hello step2"
-   
+  
  
 
    
