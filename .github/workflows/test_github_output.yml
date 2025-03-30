@@ -34,7 +34,7 @@ jobs:
       - name: access output from job 1
         id: step1
         run: |
-          echo "step1 output:" ${{ needs.job1.step1.my_GITHUB_OUTPUT }}
+          echo "step1 output:" ${{ needs.job1.step1.outputs.my_GITHUB_OUTPUT }}
          
 
       
