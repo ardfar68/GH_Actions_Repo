@@ -1,0 +1,39 @@
+name: test env_variables job level
+on:
+  push:
+    # branches: 
+    #   - dev
+    branches-ignore:
+      - dev
+  workflow_dispatch:
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    env:
+      var1: jobLevelVar1
+      var2: jobLevelVar2
+
+    steps:
+      - name: Display job_level_env_var using Shell Variable Expansion
+        run: |
+          echo "wf env var1: $var1"
+          echo "wf env var2: $var2"
+
+      - name: Display job_level_env_var using Shell Variable Expansion
+        run: |
+          echo "wf env var1: ${{ env.var1 }}"
+          echo "wf env var2: ${{ env.var2 }}"
+
+      - name: Display job_level_env_var using mix
+        run: |
+          echo "wf env var1: ${{ env.var1 }}"
+          echo "wf env var2: $var2"
+     
+      - name: using if statement
+        if: ${{ always() || env.var1 == 'jobLevelVar2' }}
+        run: |
+          echo "The result of 2 * 3 is:" $((2 * 3))
+  
