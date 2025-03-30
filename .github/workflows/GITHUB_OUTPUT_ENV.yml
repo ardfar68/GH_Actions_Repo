@@ -18,16 +18,14 @@ jobs:
 
     steps:      
       - name: my step1 name
-        id: ID3
+        id: kianosh
         run: |
           echo "my_output1=Hello" >> $GITHUB_OUTPUT
-          my_output1="Hello"
-          echo "this is the output from another step in same job:" $(my_output1)
 
       - name: my step2 name
         id: ID5
         run: |
-          echo "this is the output from another step in same job:" ${{ steps.ID3.outputs.my_output1 }}
+          echo "this is the output from another step in same job:" ${{ steps.kianosh.outputs.my_output1 }}
 
   job2:
     name: hello job 2
