@@ -16,7 +16,7 @@ jobs:
     # this is to be used in other jobs and not same job (job1)
     outputs:
       output1: ${{ steps.id1.outputs.my_output1 }}
-      output2: ${{ steps.id1.outputs.my_output2 }}
+      output2: ${{ steps.id2.outputs.my_output2 }}
 
     steps:     
       - name: writing value to GITHUB_ENV
