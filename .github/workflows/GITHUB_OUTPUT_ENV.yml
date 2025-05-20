@@ -5,10 +5,7 @@ on:
       - dev
   workflow_dispatch:
 
-
 jobs:
-
-
 
   job1:
     name: hello job 1
@@ -18,7 +15,8 @@ jobs:
       output1: ${{ steps.id1.outputs.my_output1 }}
       output2: ${{ steps.id2.outputs.my_output2 }}
 
-    steps:     
+    steps:    
+      # to be used in same job (job1) 
       - name: writing value to GITHUB_ENV
         run: |
           echo "my_GITHUB_ENV=This is written to GITHUB_ENV" >> $GITHUB_ENV
@@ -38,6 +36,7 @@ jobs:
           echo "here is the content of GITHUB_OUTPUT:" ${{ steps.kianosh.outputs.my_output1_in_job1 }}
   
 
+      # to be used in other jobs
       - name: wwriting a value to GITHUB_OUTPUT using my_output1
         id: id1
         run: |
@@ -55,7 +54,6 @@ jobs:
     outputs:
       output1: ${{ steps.id1.outputs.my_output1 }}
       output2: ${{ steps.id2.outputs.my_output2 }}
-
 
     steps:
       - name: writing a value to GITHUB_OUTPUT using my_output1
