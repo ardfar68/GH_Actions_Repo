@@ -1,7 +1,9 @@
 name: test GITHUB_OUTPUT/GITHUB_ENV
 on:
   push:
-    branches: 
+    # branches: 
+    #   - dev
+    branches-ignore:
       - dev
   workflow_dispatch:
 

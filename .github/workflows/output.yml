@@ -9,6 +9,8 @@ name: test step outputs
 
 on: 
   push:
+    # branches: 
+    #   - dev
     branches-ignore:
       - dev
 env:
