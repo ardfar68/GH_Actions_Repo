@@ -1,10 +1,10 @@
 name: PR - Build / Test
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: 
       - github_workflow
-  workflow_dispatch:
 
 jobs:
   build:
