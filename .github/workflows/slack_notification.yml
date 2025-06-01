@@ -1,11 +1,11 @@
 name: Slack notification wf
 on:
+  workflow_dispatch:
   push:
     branches: 
       - dev
     # branches-ignore:
     #   - dev
-  workflow_dispatch:
 
 
 jobs:
@@ -21,4 +21,4 @@ jobs:
       - name: Send Slack notification
         id: step1
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"🎉 Deployment successful!"}' "$SLACK_URL"
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment successful!"}' "$SLACK_URL"

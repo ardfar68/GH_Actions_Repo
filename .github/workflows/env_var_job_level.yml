@@ -1,11 +1,11 @@
 name: test env_variables job level
 on:
+  workflow_dispatch:
   push:
     # branches: 
     #   - dev
     branches-ignore:
       - dev
-  workflow_dispatch:
 
 
 jobs:

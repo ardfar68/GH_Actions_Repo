@@ -1,8 +1,8 @@
 name: Variables and Context
 on: 
-  push:
-    branches: [main]
   workflow_dispatch: 
+  # push:
+  #   branches: [main]
     inputs:
       name:
         description: Person to greet
