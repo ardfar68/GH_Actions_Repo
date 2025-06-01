@@ -1,5 +1,7 @@
 name: Basic Workflow
 on:
+  push:
+    branches: dev
   workflow_dispatch:
     inputs:
       base_url:
