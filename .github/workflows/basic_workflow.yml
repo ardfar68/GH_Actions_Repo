@@ -50,9 +50,9 @@ jobs:
     steps:
       - name: Send greeting
         run: |
-          echo "Your base url is: ${{ github.event.inputs.base_url }}"
-          echo "you like ${{ github.event.inputs.my_car_info }} car"
-          echo "and your email is ${{ github.event.inputs.email }}"
-          echo "and you want to greet ${{ github.event.inputs.name }} person"
-          echo "Your favorite city is ${{ github.event.inputs.city }}"
-          echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
+          echo "Your base url is: ${{ github.event.inputs.base_url }}
+          echo "you like ${{ github.event.inputs.my_car_info }} car
+          echo "and your email is ${{ github.event.inputs.email }}
+          echo "and you want to greet ${{ github.event.inputs.name }} person
+          echo "Your favorite city is ${{ github.event.inputs.city }}
+          echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}
