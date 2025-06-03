@@ -25,12 +25,13 @@ jobs:
 
       - name: job1-step2, writing value to GITHUB_ENV using heredoc (multi line)
         run: |
-          cat <<lolo >> $GITHUB_ENV
-          my_GITHUB_ENV=This is saved in GITHUB_ENV file
-          and can be accessed by all other steps
-          below this one and within same job
-          lolo
+          cat <<lolo1 >> $GITHUB_ENV
+          my_GITHUB_ENV1=This is saved in GITHUB_ENV file  and can be accessed by all other steps below this one and within same job
+          lolo1
 
+          cat <<lolo2 >> $GITHUB_ENV
+          my_GITHUB_ENV2=This is saved in GITHUB_ENV file  and can be accessed by all other steps below this one and within same job
+          lolo2
       - name: job1-step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
           echo "step1 output:" $my_GITHUB_ENV
