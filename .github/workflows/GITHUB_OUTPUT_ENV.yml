@@ -27,8 +27,10 @@ jobs:
         run: |
           cat <<lolo >> $GITHUB_ENV
           my_GITHUB_ENV2=This is saved in GITHUB_ENV file  and can be accessed by all other steps below this one and within same job 2
-          my_GITHUB_ENV3=This is saved in GITHUB_ENV file  and can be accessed by all other steps below this one and within same job 3
           lolo
+          cat <<lolo2 >> $GITHUB_ENV
+          my_GITHUB_ENV3=This is saved in GITHUB_ENV file  and can be accessed by all other steps below this one and within same job 3
+          lolo2
 
       - name: job1-step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
