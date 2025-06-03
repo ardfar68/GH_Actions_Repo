@@ -32,30 +32,30 @@ jobs:
 
       - name: job1-step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
-          echo "step1 output:" $my_GITHUB_ENV1
-          echo "step1 output:" $my_GITHUB_ENV2
-          echo "step1 output: ${{ env.my_GITHUB_ENV3 }}"
+          echo step1 output: $my_GITHUB_ENV1
+          echo step1 output: $my_GITHUB_ENV2
+          echo step1 output: ${{ env.my_GITHUB_ENV3 }}
 
-      - name: job1-step4, writing value to GITHUB_OUTPUT to use in same job
-        id: kianosh
-        run: |
-          echo "my_output1_in_job1=content of GITHUB_OUTPUT used in same job" >> $GITHUB_OUTPUT
+      # - name: job1-step4, writing value to GITHUB_OUTPUT to use in same job
+      #   id: kianosh
+      #   run: |
+      #     echo "my_output1_in_job1=content of GITHUB_OUTPUT used in same job" >> $GITHUB_OUTPUT
         
-      - name: job1-step5, reading a value from GITHUB_OUTPUT
-        run: |
-          echo "here is the content of GITHUB_OUTPUT:" ${{ steps.kianosh.outputs.my_output1_in_job1 }}
+      # - name: job1-step5, reading a value from GITHUB_OUTPUT
+      #   run: |
+      #     echo "here is the content of GITHUB_OUTPUT:" ${{ steps.kianosh.outputs.my_output1_in_job1 }}
   
 
-      # to be used in other jobs
-      - name: job1-step6, writing a value to GITHUB_OUTPUT using my_output1
-        id: id1
-        run: |
-          echo "my_output1=This is" >> $GITHUB_OUTPUT
+      # # to be used in other jobs
+      # - name: job1-step6, writing a value to GITHUB_OUTPUT using my_output1
+      #   id: id1
+      #   run: |
+      #     echo "my_output1=This is" >> $GITHUB_OUTPUT
 
-      - name: job1-step7,  writing a value to GITHUB_OUTPUT using my_output2
-        id: id2
-        run: |
-          echo "my_output2=Ardevan" >> $GITHUB_OUTPUT
+      # - name: job1-step7,  writing a value to GITHUB_OUTPUT using my_output2
+      #   id: id2
+      #   run: |
+      #     echo "my_output2=Ardevan" >> $GITHUB_OUTPUT
 # *****************************************************************************************
   # job2:
   #   name: hello job 2
