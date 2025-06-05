@@ -34,8 +34,7 @@ jobs:
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
           echo step1 output: $my_GITHUB_ENV1
-          echo step2 output: $my_GITHUB_ENV2
-          echo step2 output: ${{ env.my_GITHUB_ENV3 }}
+          echo step2 output: ${{ env.my_GITHUB_ENV2 }}
 
 
 
