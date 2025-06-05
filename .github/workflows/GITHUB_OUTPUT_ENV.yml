@@ -46,7 +46,6 @@ jobs:
       - name: step5, reading a value from GITHUB_OUTPUT
         run: |
           echo step4 output: ${{ steps.step4_id.outputs.my_output1 }}
-          # echo step4 output: ${{ env.my_output1}}
   
 
       # # to be used in other jobs
