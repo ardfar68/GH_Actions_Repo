@@ -18,23 +18,23 @@ jobs:
       output2: ${{ steps.id2.outputs.my_output2 }}
 
     steps:    
-      # # write to GITHUB_ENV in step1,2 and read in step3
-      # - name: step1, usual way
-      #   run: |
-      #     echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
+      # write to GITHUB_ENV in step1,2 and read in step3
+      - name: step1, usual way
+        run: |
+          echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
 
-      # - name: step2, using heredoc (multi line)
-      #   run: |
-      #     cat <<lolo >> $GITHUB_ENV
-      #     my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
-      #     my_GITHUB_ENV3=cccccccccccccccccccccc
-      #     lolo
+      - name: step2, using heredoc (multi line)
+        run: |
+          cat <<lolo >> $GITHUB_ENV
+          my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
+          my_GITHUB_ENV3=cccccccccccccccccccccc
+          lolo
 
-      # - name: step3, reading content of GITHUB_ENV in 2 ways in same job
-      #   run: |
-      #     echo step1 output: $my_GITHUB_ENV1
-      #     echo step2 output: $my_GITHUB_ENV2
-      #     echo step2 output: ${{ env.my_GITHUB_ENV3 }}
+      - name: step3, reading content of GITHUB_ENV in 2 ways in same job
+        run: |
+          echo step1 output: $my_GITHUB_ENV1
+          echo step2 output: $my_GITHUB_ENV2
+          echo step2 output: ${{ env.my_GITHUB_ENV3 }}
 
 
       # same as above but using step id.
