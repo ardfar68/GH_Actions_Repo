@@ -23,16 +23,25 @@ jobs:
         run: |
           echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
 
+      # - name: step2, using heredoc (multi line)
+      #   run: |
+      #     cat <<EOF >> $GITHUB_ENV
+      #     my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      #     EOF
+
       - name: step2, using heredoc (multi line)
         run: |
-          cat <<lolo >> $GITHUB_ENV
-          my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-          lolo
-
+          cat <<EOF >> $GITHUB_ENV
+          var1=foo
+          var2=bar
+          EOF
+        
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
           echo step1 output: $my_GITHUB_ENV1
-          echo step2 output: ${{ env.my_GITHUB_ENV2 }}
+          echo step2 output: ${{ env.var1 }}
+          echo step2 output: ${{ env.var2 }}
+
 
 
 
