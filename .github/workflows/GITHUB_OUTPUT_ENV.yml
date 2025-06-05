@@ -26,9 +26,9 @@ jobs:
       - name: step2, using heredoc (multi line)
         run: |
           cat <<EOF >> $GITHUB_ENV
-          VAR1="Kianosh är snart" 
-          VAR2="Anahita är snart"
-          VAR3="Jag jobbar"
+          VAR1=Kianosh är snart
+          VAR2=Anahita är snart
+          VAR3=Jag jobbar
           EOF
         
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
