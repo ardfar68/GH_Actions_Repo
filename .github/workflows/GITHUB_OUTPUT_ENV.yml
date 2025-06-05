@@ -18,7 +18,7 @@ jobs:
       output2: ${{ steps.id2.outputs.my_output2 }}
 
     steps:    
-      # write to GITHUB_ENV in step1,2 and read in step3
+      # GITHUB_ENV: write to in step 1, 2 and read in step 3
       - name: step1, usual way
         run: |
           echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
@@ -27,7 +27,8 @@ jobs:
         run: |
           cat <<lolo >> $GITHUB_ENV
           my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
-          my_GITHUB_ENV3=cccccccccccccccccccccc
+          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
           lolo
 
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
@@ -39,17 +40,22 @@ jobs:
 
 
 
-          
-      # same as above but using step id.
+
+      # GITHUB_OUTPUT: write to in step 4, 5 and read in step 6 (step must have an id)
       - name: step4, writing a value to GITHUB_OUTPUT
         id: step4_id
         run: |
-          echo my_output1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
-        
+          echo my_GITHUB_OUTPUT1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
+
+      - name: step5, writing a value to GITHUB_OUTPUT
+        id: step5_id
+        run: |
+          echo my_GITHUB_OUTPUT2=eeeeeeeeeeeeeeeeeeeee >> $GITHUB_OUTPUT
+
       - name: step5, reading a value from GITHUB_OUTPUT
         run: |
-          echo step4 output: ${{ steps.step4_id.outputs.my_output1 }}
-          echo step2 output: ${{ env.my_output1 }}
+          echo step4 output: ${{ steps.step4_id.outputs.my_GITHUB_OUTPUT1 }}
+          echo step4 output: ${{ steps.step5_id.outputs.my_GITHUB_OUTPUT2 }}
   
 
       # # to be used in other jobs
