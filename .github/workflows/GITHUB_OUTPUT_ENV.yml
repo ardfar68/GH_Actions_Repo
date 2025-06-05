@@ -37,6 +37,9 @@ jobs:
           echo step2 output: ${{ env.my_GITHUB_ENV3 }}
 
 
+
+
+          
       # same as above but using step id.
       - name: step4, writing a value to GITHUB_OUTPUT
         id: step4_id
@@ -46,6 +49,7 @@ jobs:
       - name: step5, reading a value from GITHUB_OUTPUT
         run: |
           echo step4 output: ${{ steps.step4_id.outputs.my_output1 }}
+          echo step2 output: ${{ env.my_output1 }}
   
 
       # # to be used in other jobs
