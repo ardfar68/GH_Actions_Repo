@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     # this is to be used in other jobs and not same job (job1)
     outputs:
-      sum: ${{ steps.calc1.outputs.result }}
-      multi: ${{ steps.calc2.outputs.result }}
+      sum: ${{ steps.calc1.outputs.sum_result }}
+      multi: ${{ steps.calc2.outputs.multi_result }}
 
     steps:    
       # GITHUB_ENV: write to in step 1, 2 and read in step 3
@@ -59,12 +59,12 @@ jobs:
       - name: step7, calculate some math
         id: calc1
         run: |
-          echo result=$((2 + 2)) >> $GITHUB_OUTPUT
+          echo sum_result=$((2 + 2)) >> $GITHUB_OUTPUT
       
       - name: step8, calculate some math
         id: calc2
         run: |
-          echo result=$((25 * 25)) >> $GITHUB_OUTPUT
+          echo multi_result=$((25 * 25)) >> $GITHUB_OUTPUT
          
 
 # *****************************************************************************************
