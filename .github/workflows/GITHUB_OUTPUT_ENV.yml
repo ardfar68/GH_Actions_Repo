@@ -41,7 +41,7 @@ jobs:
       - name: step4, writing a value to GITHUB_OUTPUT
         id: step4_id
         run: |
-          echo "my_output1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
+          echo my_output1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
         
       - name: step5, reading a value from GITHUB_OUTPUT
         run: |
