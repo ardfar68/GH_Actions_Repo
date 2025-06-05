@@ -18,34 +18,35 @@ jobs:
       output2: ${{ steps.id2.outputs.my_output2 }}
 
     steps:    
-      # write to GITHUB_ENV in step1,2 and read in step3
-      - name: step1, writing value to GITHUB_ENV usual way
-        run: |
-          echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
+      # # write to GITHUB_ENV in step1,2 and read in step3
+      # - name: step1, usual way
+      #   run: |
+      #     echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
 
-      - name: step2, writing value to GITHUB_ENV using heredoc (multi line)
-        run: |
-          cat <<lolo >> $GITHUB_ENV
-          my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
-          my_GITHUB_ENV3=cccccccccccccccccccccc
-          lolo
+      # - name: step2, using heredoc (multi line)
+      #   run: |
+      #     cat <<lolo >> $GITHUB_ENV
+      #     my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
+      #     my_GITHUB_ENV3=cccccccccccccccccccccc
+      #     lolo
 
-      - name: step3, reading content of GITHUB_ENV in 2 ways in same job
-        run: |
-          echo $my_GITHUB_ENV1
-          echo $my_GITHUB_ENV2
-          echo ${{ env.my_GITHUB_ENV3 }}
+      # - name: step3, reading content of GITHUB_ENV in 2 ways in same job
+      #   run: |
+      #     echo step1 output: $my_GITHUB_ENV1
+      #     echo step2 output: $my_GITHUB_ENV2
+      #     echo step2 output: ${{ env.my_GITHUB_ENV3 }}
 
 
       # same as above but using step id.
-      # - name: step4, writing value to GITHUB_OUTPUT to use in same job
-      #   id: kianosh
-      #   run: |
-      #     echo "my_output1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
+      - name: step4, writing a value to GITHUB_OUTPUT
+        id: step4_id
+        run: |
+          echo "my_output1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
         
-      # - name: step5, reading a value from GITHUB_OUTPUT
-      #   run: |
-      #     echo "here is the content of GITHUB_OUTPUT:" ${{ steps.kianosh.outputs.my_output1_in_job1 }}
+      - name: step5, reading a value from GITHUB_OUTPUT
+        run: |
+          echo step4 output: ${{ steps.step4_id.outputs.my_output1 }}
+          echo step4 output: ${{ env.my_output1}}
   
 
       # # to be used in other jobs
