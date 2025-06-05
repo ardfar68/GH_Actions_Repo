@@ -26,9 +26,7 @@ jobs:
       - name: step2, using heredoc (multi line)
         run: |
           cat <<lolo >> $GITHUB_ENV
-          my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbb
-          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+          my_GITHUB_ENV2=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
           lolo
 
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
