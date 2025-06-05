@@ -21,7 +21,7 @@ jobs:
       # to be used in same job (job1) 
       - name: job1-step1, writing value to GITHUB_ENV usual way
         run: |
-          echo my_GITHUB_ENV1= aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
+          echo my_GITHUB_ENV1=          aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
 
       - name: job1-step2, writing value to GITHUB_ENV using heredoc (multi line)
         run: |
