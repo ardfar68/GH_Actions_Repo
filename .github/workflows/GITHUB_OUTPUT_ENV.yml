@@ -40,24 +40,23 @@ jobs:
 
 
 
-
-
-
       # GITHUB_OUTPUT: write to in step 4, 5 and read in step 6 (step must have an id)
       - name: step4, writing a value to GITHUB_OUTPUT
         id: step4_id
-        run: |
-          echo my_GITHUB_OUTPUT1=ddddddddddddddddddddd >> $GITHUB_OUTPUT
+        run: echo my_GITHUB_OUTPUT1=aaaaaaaaaaaaaaaaaaaaaa >> $GITHUB_OUTPUT
 
       - name: step5, writing a value to GITHUB_OUTPUT
         id: step5_id
         run: |
-          echo my_GITHUB_OUTPUT2=eeeeeeeeeeeeeeeeeeeee >> $GITHUB_OUTPUT
+          echo my_GITHUB_OUTPUT2=bbbbbbbbbbbbbbbbbbbbbbbbb >> $GITHUB_OUTPUT
+          echo my_GITHUB_OUTPUT3=ccccccccccccccccccccccccc >> $GITHUB_OUTPUT
 
       - name: step6, reading a value from GITHUB_OUTPUT
         run: |
           echo step4 output: ${{ steps.step4_id.outputs.my_GITHUB_OUTPUT1 }}
           echo step5 output: ${{ steps.step5_id.outputs.my_GITHUB_OUTPUT2 }}
+          echo step5 output: ${{ steps.step5_id.outputs.my_GITHUB_OUTPUT3 }}
+
   
 
       # # to be used in other jobs
