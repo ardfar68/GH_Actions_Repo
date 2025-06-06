@@ -1,11 +1,11 @@
 name: Slack notification wf
 on:
   workflow_dispatch:
-  push:
-    # branches: 
-    #   - dev
-    # branches-ignore:
-    #   - dev
+  # push:
+  #   branches: 
+  #     - dev
+  #   branches-ignore:
+  #     - dev
 
 
 jobs:
