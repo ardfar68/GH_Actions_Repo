@@ -1,11 +1,11 @@
 name: test GITHUB_OUTPUT/GITHUB_ENV
 on:
   workflow_dispatch:
-  push:
-    # branches: 
-    #   - dev
-    # branches-ignore:
-    #   - dev
+  # push:
+  #   branches: 
+  #     - dev
+  #   branches-ignore:
+  #     - dev
 
 jobs:
 

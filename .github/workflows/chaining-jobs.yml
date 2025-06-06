@@ -1,9 +1,10 @@
 name: Chaining Job
+
 on:
   workflow_dispatch:
     inputs:
       run-job-3:
-        description: "Run job 3"
+        description: "Run the job 3"
         required: true
         type: boolean
     

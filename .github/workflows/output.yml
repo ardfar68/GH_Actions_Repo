@@ -7,12 +7,13 @@
 
 name: test step outputs
 
-on: 
-  push:
-    # branches: 
-    #   - dev
-    branches-ignore:
-      - dev
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: 
+  #     - dev
+  #   branches-ignore:
+  #     - dev
 env:
   env_var_at_wf_level_1: ${{ toJSON(github) }}
   env_var_at_wf_level_2: "this is another variable at wf level"
