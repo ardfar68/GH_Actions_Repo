@@ -2,8 +2,8 @@ name: Slack notification wf
 on:
   workflow_dispatch:
   push:
-    branches: 
-      - dev
+    # branches: 
+    #   - dev
     # branches-ignore:
     #   - dev
 
