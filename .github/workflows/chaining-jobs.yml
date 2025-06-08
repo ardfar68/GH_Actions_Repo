@@ -1,9 +1,9 @@
 name: Chaining Job
 
 on:
-  push:
-    branches:
-      - dev
+  # push:
+  #   branches:
+  #     - dev
   workflow_dispatch:
     inputs:
       run-job-3:
