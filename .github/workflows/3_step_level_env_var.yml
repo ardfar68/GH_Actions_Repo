@@ -1,0 +1,24 @@
+name: 3_step level environment variables
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - dev
+  #   branches-ignore:
+  #     - dev
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display step level environment variable (using Shell Variable Expansion)
+        env: # only accessed in this step
+            var1: Hello From step Level 1
+            var2: Hello From step Level 2
+        run: |
+          echo step level environment variable 1: $var1
+          echo step level environment variable 2: ${{ env.var2 }}
+
+     
+     

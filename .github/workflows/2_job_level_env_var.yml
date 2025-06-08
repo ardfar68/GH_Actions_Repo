@@ -1,0 +1,35 @@
+name: 2_job level environment variables
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: 
+  #     - dev
+  #   branches-ignore:
+  #     - dev
+
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+
+    env: # accessed in all steps in this job only
+      var1: Hello From Job Level 1
+      var2: Hello From Job Level 2
+
+    steps:
+      - name: step 1
+        run: |
+          echo "wf env var1: $var1"
+          echo "wf env var2: $var2"
+
+      - name: step 2
+        run: |
+          echo "wf env var1: ${{ env.var1 }}"
+          echo "wf env var2: ${{ env.var2 }}"
+
+      - name: step 3
+        if: ${{ always() && env.var1 == 'Hello From Job Level 2' }}
+        run: |
+          echo "The result of 2 * 3 is:" $((2 * 3))
+  
