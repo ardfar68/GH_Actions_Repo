@@ -1,4 +1,4 @@
-name: test env_variables job level
+name: 2_job level environment variables
 on:
   workflow_dispatch:
   # push:

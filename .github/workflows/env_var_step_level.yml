@@ -1,4 +1,4 @@
-name: test env_variables step level
+name: 3_step level environment variables
 on:
   workflow_dispatch:
   push:
