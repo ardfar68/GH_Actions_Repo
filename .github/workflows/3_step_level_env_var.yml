@@ -1,9 +1,9 @@
 name: 3_step level environment variables
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 
