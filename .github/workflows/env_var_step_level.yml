@@ -1,9 +1,9 @@
 name: test env_variables step level
 on:
   workflow_dispatch:
-  # push:
-  #   branches: 
-  #     - dev
+  push:
+    branches: 
+      - dev
   #   branches-ignore:
   #     - dev
 
@@ -14,11 +14,11 @@ jobs:
     steps:
       - name: Display wf env var using Shell Variable Expansion
         env:
-            var1: stepLevelVar1
-            var2: stepLevelVar2
+            var1: Hello From step Level 1
+            var2: Hello From step Level 2
         run: |
-          echo "wf env var1: $var1"
-          echo "wf env var2: ${{ env.var2 }}"
+          echo step level environment variable 1 $var1
+          echo step level environment variable 2: ${{ env.var2 }}
 
      
      

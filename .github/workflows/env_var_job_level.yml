@@ -1,9 +1,9 @@
 name: test env_variables job level
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 
@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      var1: jobLevelVar1
-      var2: jobLevelVar2
+      var1: Hello From Job Level 1
+      var2: Hello From Job Level 2
 
     steps:
       - name: step 1
