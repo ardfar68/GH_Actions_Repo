@@ -17,7 +17,7 @@ jobs:
    
       - name: step1, writing a value to GITHUB_OUTPUT
         id: step1_id
-        run: echo my_GITHUB_OUTPUT1=aaaaaaaaaaaaaaaaaaaaaa >> $GITHUB_OUTPUT
+        run: echo my_GITHUB_OUTPUT1=$((2 *3)) >> $GITHUB_OUTPUT
 
       - name: step2, writing a value to GITHUB_OUTPUT
         id: step2_id
