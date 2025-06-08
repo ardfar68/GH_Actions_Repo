@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      sum: ${{ steps.step4_id.outputs.sumOf }}
+      lolo: ${{ steps.step4_id.outputs.sumResult }}
+      molo: ${{ steps.step5_id.outputs.multiResult }}
   
     steps:    
    
@@ -36,7 +37,11 @@ jobs:
 
       - name: step4, used in another jobs
         id: step4_id
-        run: echo sumOf=$((10 + 10)) >> $GITHUB_OUTPUT
+        run: echo sumResult=$((10 + 10)) >> $GITHUB_OUTPUT
+    
+      - name: step5, used in another jobs
+        id: step5_id
+        run: echo multiResult=$((10 * 10)) >> $GITHUB_OUTPUT
 
 
   job2:
@@ -47,7 +52,8 @@ jobs:
     steps:
       - name: step1, use output from job 1
         run: |
-          echo step1 output: ${{ needs.job1.outputs.sum }}
+          echo step1 output: ${{ needs.job1.outputs.lolo }}
+          echo step1 output: ${{ needs.job1.outputs.molo }}
 
 
 
