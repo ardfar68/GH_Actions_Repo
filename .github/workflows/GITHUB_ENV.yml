@@ -18,14 +18,12 @@ jobs:
 
     steps:    
 
-      - name: step1, usual way
+      - name: step1, write to GITHUB_ENV (usual way)
         run: |
           echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
 
-      - name: step2, using heredoc (multi line)
-        run: |
-          echo step1 output: $my_GITHUB_ENV1
-        
+      - name: step2, write to GITHUB_ENV (heredoc (multi line))
+        run: |        
           cat <<EOF >> $GITHUB_ENV
           VAR1=Kianosh är snart
           VAR2=Anahita är snart

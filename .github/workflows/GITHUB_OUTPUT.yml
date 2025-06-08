@@ -17,17 +17,17 @@ jobs:
    
       - name: step1, writing a value to GITHUB_OUTPUT
         id: step1_id
-        run: echo my_GITHUB_OUTPUT1=$((2 *3)) >> $GITHUB_OUTPUT
+        run: echo resultOfSum=$((2 + 3)) >> $GITHUB_OUTPUT
 
       - name: step2, writing a value to GITHUB_OUTPUT
         id: step2_id
         run: |
-          echo my_GITHUB_OUTPUT2=$((25 * 25)) >> $GITHUB_OUTPUT
-          echo my_GITHUB_OUTPUT3=ccccccccccccccccccccccc >> $GITHUB_OUTPUT
+          echo resultOfMulti=$((25 * 25)) >> $GITHUB_OUTPUT
+          echo my_string=ccccccccccccccccccccccc >> $GITHUB_OUTPUT
 
       - name: step3, reading a value from GITHUB_OUTPUT
         run: |
-          echo step1 output: ${{ steps.step1_id.outputs.my_GITHUB_OUTPUT1 }}
-          echo step2 output: ${{ steps.step2_id.outputs.my_GITHUB_OUTPUT2 }}
-          echo step2 output: ${{ steps.step2_id.outputs.my_GITHUB_OUTPUT3 }}
+          echo step1 output: ${{ steps.step1_id.outputs.resultOfSum }}
+          echo step2 output: ${{ steps.step2_id.outputs.resultOfMulti }}
+          echo step2 output: ${{ steps.step2_id.outputs.my_string }}
    
