@@ -4,9 +4,9 @@
 name: test GITHUB_ENV
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 
