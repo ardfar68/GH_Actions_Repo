@@ -1,0 +1,37 @@
+name: test GITHUB_OUTPUT/GITHUB_ENV
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - dev
+  #   branches-ignore:
+  #     - dev
+
+jobs:
+
+  job1:
+    name: hello job 1
+    runs-on: ubuntu-latest
+
+    steps:    
+      # GITHUB_ENV: write to in step 1, 2 and read in step 3
+      - name: step1, usual way
+        run: |
+          echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
+
+      - name: step2, using heredoc (multi line)
+        run: |
+          echo step1 output: $my_GITHUB_ENV1
+          cat <<EOF >> $GITHUB_ENV
+          VAR1=Kianosh är snart
+          VAR2=Anahita är snart
+          VAR3=Jag jobbar
+          EOF
+        
+      - name: step3, reading content of GITHUB_ENV in 2 ways in same job
+        run: |
+          echo step1 output: $my_GITHUB_ENV1
+          echo step2 output: $VAR1 20 år
+          echo step2 output: ${{ env.VAR2 }} 18 år
+          echo step2 output: ${{ env.VAR3 }} på Qlik
+    
