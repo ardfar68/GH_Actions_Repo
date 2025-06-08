@@ -1,4 +1,4 @@
-name: test GITHUB_OUTPUT/GITHUB_ENV
+name: test GITHUB_OUTPUT
 on:
   workflow_dispatch:
   # push:
