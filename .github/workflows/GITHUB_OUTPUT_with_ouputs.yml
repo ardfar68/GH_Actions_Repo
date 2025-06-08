@@ -14,33 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      lolo: ${{ steps.step4_id.outputs.sumResult }}
-      molo: ${{ steps.step5_id.outputs.multiResult }}
+      lolo: ${{ steps.step1_id.outputs.sumResult }}
+      molo: ${{ steps.step2_id.outputs.multiResult }}
   
     steps:    
-   
-      - name: step1, writing a value to GITHUB_OUTPUT
+
+      - name: step1, used in another jobs
         id: step1_id
-        run: echo my_GITHUB_OUTPUT1=$((2 *3)) >> $GITHUB_OUTPUT
-
-      - name: step2, writing a value to GITHUB_OUTPUT
-        id: step2_id
-        run: |
-          echo my_GITHUB_OUTPUT2=$((25 * 25)) >> $GITHUB_OUTPUT
-          echo my_GITHUB_OUTPUT3=ccccccccccccccccccccccc >> $GITHUB_OUTPUT
-
-      - name: step3, reading a value from GITHUB_OUTPUT
-        run: |
-          echo step1 output: ${{ steps.step1_id.outputs.my_GITHUB_OUTPUT1 }}
-          echo step2 output: ${{ steps.step2_id.outputs.my_GITHUB_OUTPUT2 }}
-          echo step2 output: ${{ steps.step2_id.outputs.my_GITHUB_OUTPUT3 }}
-
-      - name: step4, used in another jobs
-        id: step4_id
         run: echo sumResult=$((10 + 10)) >> $GITHUB_OUTPUT
     
-      - name: step5, used in another jobs
-        id: step5_id
+      - name: step2, used in another jobs
+        id: step2_id
         run: echo multiResult=$((10 * 10)) >> $GITHUB_OUTPUT
 
 
