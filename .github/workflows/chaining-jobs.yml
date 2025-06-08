@@ -32,7 +32,7 @@ jobs:
         run: echo Hello from Job 2
 
       - name: Make Job 2 fail (exit 1)
-        run: exit 0
+        run: exit 1
   
 
   job-3:
@@ -49,8 +49,8 @@ jobs:
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-    if: always() 
     needs: [job-2, job-3]
+    # if: always() 
 
     steps:
       - name: Output for Job 4
