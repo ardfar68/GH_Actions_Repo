@@ -1,9 +1,12 @@
+# GITHUB_ENV: valid only within same job
+# reading to GITHUB_ENV in step 1 is only accessible in step 2, 3 ...
+
 name: test GITHUB_ENV
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 
@@ -14,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:    
-      # GITHUB_ENV: write to in step 1, 2 and read in step 3
+
       - name: step1, usual way
         run: |
           echo my_GITHUB_ENV1=aaaaaaaaaaaaaaaaaaaaa >> $GITHUB_ENV
@@ -22,6 +25,7 @@ jobs:
       - name: step2, using heredoc (multi line)
         run: |
           echo step1 output: $my_GITHUB_ENV1
+        
           cat <<EOF >> $GITHUB_ENV
           VAR1=Kianosh är snart
           VAR2=Anahita är snart
