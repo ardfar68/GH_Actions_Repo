@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Display wf env var using Shell Variable Expansion
+      - name: Display step level environment variable (using Shell Variable Expansion)
         env: # only accessed in this step
             var1: Hello From step Level 1
             var2: Hello From step Level 2
