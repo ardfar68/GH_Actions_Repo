@@ -1,4 +1,4 @@
-name: Chaining Job
+name: Chaining Job 
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       run-job-3:
-        description: "Run the job 3"
+        description: Run the job 3
         required: true
         type: boolean
     
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Output for Job 1
-        run: echo "Hello from Job 1. Run Job 3 equals ${{ github.event.inputs.run-job-3 }}"
+        run: echo Hello from Job 1. Run Job 3 equals ${{ github.event.inputs.run-job-3 }}
 
 
   job-2:
@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Output for Job 2
-        run: echo "Hello from Job 2"
+        run: echo Hello from Job 2
 
       - name: Make Job 2 fail (exit 1)
         run: exit 1
@@ -43,15 +43,15 @@ jobs:
 
     steps:
       - name: Output for Job 3
-        run: echo "Hello from Job 3"
+        run: echo Hello from Job 3
   
         
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-    if: always()
+    if: always() 
     needs: [job-2, job-3]
 
     steps:
       - name: Output for Job 4
-        run: echo "Hello from Job 4"
+        run: echo Hello from Job 4
