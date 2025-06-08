@@ -1,9 +1,9 @@
 name: 1_workflow level environment variables
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 env:
@@ -19,11 +19,9 @@ jobs:
       - name: step 1, Display workflow environment variable using shell-style variable expansion
         run: |
           echo "workflow env var1: $var1"
-          echo "workflow env var2: $var2"
 
       - name: step 2, Display workflow environment variable using GH actions expression syntax
         run: |
-          echo workflow env var1: ${{ env.var1 }}
           echo workflow env var2: ${{ env.var2 }}
      
       - name: step 3, using if statement
