@@ -1,4 +1,4 @@
-name: Print GitHub Ref
+name: Go Through System Test Workflow
 
 on:
   push:
