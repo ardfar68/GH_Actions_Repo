@@ -13,3 +13,6 @@ jobs:
 
       - name: Print github.run_id
         run: echo "The github.run_id is:" ${{ github.run_id  }}
+
+      - name: Dump github context
+        run: echo '${{ toJson(github) }}'
