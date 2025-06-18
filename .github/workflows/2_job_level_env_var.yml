@@ -1,3 +1,6 @@
+# Can be overridden at step level only
+# Is available in all steps of that job (not just steps beneath the declaration, but the entire job)
+
 name: 2_job level environment variables
 on:
   workflow_dispatch:

@@ -1,3 +1,6 @@
+# Only applies to that step
+# Cannot be overridden (because it only exists for that step)
+
 name: 3_step level environment variables
 on:
   workflow_dispatch:

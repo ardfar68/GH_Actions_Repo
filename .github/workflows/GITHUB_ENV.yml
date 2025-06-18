@@ -1,5 +1,7 @@
-# GITHUB_ENV: valid only within same job
-# reading to GITHUB_ENV in step 1 is only accessible in step 2, 3 ...
+# GITHUB_ENV:
+    # valid only within same job
+    # reading to GITHUB_ENV in step 1 is only accessible in step 2, 3 ...
+    # Get it's value at run time (it's dynamic), say something computes in step 1 and then we write it to GITHUB_ENV in step 2, 3, etc and then we can read it in step 4, 5, etc.
 
 name: test GITHUB_ENV
 on:

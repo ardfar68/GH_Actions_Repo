@@ -1,3 +1,7 @@
+# Can be overridden at job level and step level
+# Is available in all jobs and their steps unless overridden
+
+
 name: 1_workflow level environment variables
 on:
   workflow_dispatch:
