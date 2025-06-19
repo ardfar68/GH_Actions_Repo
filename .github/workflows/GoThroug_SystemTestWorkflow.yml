@@ -5,14 +5,18 @@ on:
     branches:
       - dev
 jobs:
-  github_ref:
+  print-github-context:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump github context
+        run: echo '${{ toJson(github) }}'
+
       - name: Print github.ref
         run: echo "The github.ref is:" ${{ github.ref }}
 
       - name: Print github.run_id
         run: echo "The github.run_id is:" ${{ github.run_id  }}
+      
+      - name: Print github.workflow
+        run: echo "github.workflows:" ${{ github.workflow }}
 
-      - name: Dump github context
-        run: echo '${{ toJson(github) }}'
