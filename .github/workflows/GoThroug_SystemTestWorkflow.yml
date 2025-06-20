@@ -17,6 +17,6 @@ jobs:
       - name: Print github.run_id
         run: echo "The github.run_id is:" ${{ github.run_id  }}
       
-      - name: Print github.workflow
-        run: echo "github.workflows:" ${{ github.workflow }}
+      - name: Print the name of the workflow
+        run: echo "github.workflows:" ${{ github.workflow }} 
 
