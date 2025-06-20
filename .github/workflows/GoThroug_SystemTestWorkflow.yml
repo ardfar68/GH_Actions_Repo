@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - dev
+  workflow_dispatch:
+
 jobs:
   print-github-context:
     runs-on: ubuntu-latest
