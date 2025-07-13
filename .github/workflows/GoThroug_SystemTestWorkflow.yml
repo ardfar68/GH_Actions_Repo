@@ -1,10 +1,10 @@
 name: Go Through System Test Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
-  workflow_dispatch:
 
 jobs:
   print-github-context:
@@ -20,5 +20,13 @@ jobs:
         run: echo "The github.run_id is:" ${{ github.run_id  }}
       
       - name: Print the name of the workflow
-        run: echo "github.workflows:" ${{ github.workflow }} 
-
+        run: echo "github.workflows:" ${{ github.workflow }}
+      
+      - name: print branch info
+        run: |
+          echo "github.head_ref: ${{ github.head_ref }}"
+          echo "github.event.ref: ${{ github.event.ref }}"
+          echo "Static string for comparison: refs/heads/qlikreleaser"
+      
+      
+      
