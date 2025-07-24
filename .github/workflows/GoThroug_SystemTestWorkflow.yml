@@ -2,26 +2,15 @@ name: Go Through System Test Workflow
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev
+  # push:
+  #   branches:
+  #     - dev
 
 jobs:
   print-github-context:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump github context
-        run: echo '${{ toJson(github) }}'
 
-      - name: Print github.ref
-        run: echo "The github.ref is:" ${{ github.ref }}
-
-      - name: Print github.run_id
-        run: echo "The github.run_id is:" ${{ github.run_id  }}
-      
-      - name: Print the name of the workflow
-        run: echo "github.workflows:" ${{ github.workflow }}
-      
       - name: print branch info
         run: |
           echo "github.head_ref: ${{ github.head_ref }}"
