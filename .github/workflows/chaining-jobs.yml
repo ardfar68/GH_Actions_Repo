@@ -51,7 +51,7 @@ jobs:
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-    needs: [job-2, job-3]
+    needs: [job-2]
     if: always() && github.event.inputs.run-job-3 == 'false'
 
     steps:
