@@ -35,7 +35,7 @@ jobs:
       - name: step3, reading content of GITHUB_ENV in 2 ways in same job
         run: |
           echo step1 output: $my_GITHUB_ENV1
-          echo step2 output: $VAR1 20 år
-          echo step2 output: ${{ env.VAR2 }} 18 år
-          echo step2 output: ${{ env.VAR3 }} på Qlik
+          echo step2 output var1: $VAR1 20 år
+          echo step2 output var2: ${{ env.VAR2 }} 18 år
+          echo step2 output var3: ${{ env.VAR3 }} på Qlik
     
