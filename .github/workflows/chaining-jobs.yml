@@ -8,7 +8,7 @@ on:
     inputs:
       run-job-3:
         description: Run the job 3
-        required: false
+        required: true
         type: boolean
     
 jobs:
