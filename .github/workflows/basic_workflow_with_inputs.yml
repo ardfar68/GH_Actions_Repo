@@ -56,4 +56,4 @@ jobs:
           echo "and you want to greet ${{ github.event.inputs.name }} person"
           echo "Your favorite city is ${{ github.event.inputs.city }}"
           echo "Is your favorite color blue: ${{ github.event.inputs.fav-color-blue }}"
-          echo "Whole inputs: ${{ github.event.inputs }}"
+          echo "Whole inputs: ${{ toJson(github.event.inputs) }}"
