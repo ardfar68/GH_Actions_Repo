@@ -1,0 +1,41 @@
+# GITHUB_ENV:
+    # valid only within same job
+    # reading to GITHUB_ENV in step1 is only accessible future steps (below step1)
+    # Get it's value at run time (it's dynamic), say something computes in step 1 and then we write it to GITHUB_ENV in step 2, 3, etc and then we can read it in step 4, 5, etc.
+
+name: test GITHUB_ENV
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: 
+  #     - dev
+  #   branches-ignore:
+  #     - dev
+
+jobs:
+
+  job1:
+    name: hello job 1
+    runs-on: ubuntu-latest
+
+    steps:    
+
+      - name: step1, write to GITHUB_ENV (usual way)
+        run: |
+          echo my_gh_env=this is written to github env variable >> $GITHUB_ENV
+
+      - name: step2, write to GITHUB_ENV in heredoc way (multi line)
+        run: |        
+          cat <<jomol >> $GITHUB_ENV
+          VAR1=Kianosh är snart
+          VAR2=Anahita är snart
+          VAR3=Jag jobbar
+          jomol
+        
+      - name: step3, reading content of GITHUB_ENV in 2 ways in same job
+        run: |
+          echo step1 output: $my_gh_env
+          echo step2 output var1: $VAR1 20 år
+          echo step2 output var2: ${{ env.VAR2 }} 18 år
+          echo step2 output var3: ${{ env.VAR3 }} på Qlik
+    
