@@ -18,5 +18,5 @@ jobs:
     steps:
       - name: Show input values (or defaults)
         run: |
-          echo "Environment: ${{ github.event.inputs.environment || 'staging' }}"
-          echo "Debug mode: ${{ github.event.inputs.debug || 'false' }}"
+          echo Environment: ${{ github.event.inputs.environment || 'staging' }}
+          echo Debug mode: ${{ github.event.inputs.debug || 'false' }}
