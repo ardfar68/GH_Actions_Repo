@@ -1,0 +1,22 @@
+name: more inputs test
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Which environment to deploy to"
+        required: false
+        default: "staging"
+      debug:
+        description: "Enable debug mode"
+        required: false
+        default: "false"
+
+jobs:
+  run-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show input values (or defaults)
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment || 'staging' }}"
+          echo "Debug mode: ${{ github.event.inputs.debug || 'false' }}"
