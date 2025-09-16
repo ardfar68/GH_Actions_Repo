@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
         description: "Which environment to deploy to"
-        required: true
+        required: false
         default: "staging"
       debug:
         description: "Enable debug mode"
