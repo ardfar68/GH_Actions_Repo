@@ -40,6 +40,17 @@ jobs:
           echo step1 output: ${{ needs.job1.outputs.calculateMulti }}
 
 
+  jobs3:
+    name: demo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - set output
+        id: step3_id
+        run: echo "RESULT=Hello World" >> $GITHUB_OUTPUT
+
+      - name: Step 2 - use output
+        run: echo "Step 1 said: ${{ steps.step3_id.outputs.RESULT }}"
+
 
 
 
