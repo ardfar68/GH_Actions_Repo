@@ -43,6 +43,7 @@ jobs:
 
   # RESULT is only available to future steps in the same job 
   jobs3:
+    needs: [job1]
     name: hello job 3
     runs-on: ubuntu-latest
     steps:
@@ -53,7 +54,9 @@ jobs:
 
       - name: Step 2 - use output
         run: |
-         echo Step 1 said: ${{ steps.step3_id.outputs.RESULT }}
+          echo job3 step1 output: ${{ steps.step3_id.outputs.RESULT }}
+          echo job1 step1 output: ${{ needs.job1.outputs.sumResult }}
+
 
 
 
