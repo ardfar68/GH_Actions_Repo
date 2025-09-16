@@ -55,7 +55,7 @@ jobs:
       - name: Step 2 - use output
         run: |
           echo job3 step1 output: ${{ steps.step3_id.outputs.RESULT }}
-          echo job1 step1 output: ${{ needs.job1.outputs.sumResult }}
+          echo job1 step1 output: ${{ needs.job1.outputs.calculateSum }}
 
 
 
