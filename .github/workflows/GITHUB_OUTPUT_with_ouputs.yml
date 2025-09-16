@@ -13,7 +13,7 @@ jobs:
     name: hello job 1
     runs-on: ubuntu-latest
 
-    # outputs: needs here because we want other job to access value from job1
+    # outputs: needs if we want other jobs to access value from job1
     outputs:
       calculateSum: ${{ steps.step1_id.outputs.sumResult }}
       calculateMulti: ${{ steps.step2_id.outputs.multiResult }}
@@ -48,13 +48,12 @@ jobs:
     steps:
       - name: Step 1 - set output
         id: step3_id
-        # run: echo "RESULT=Hello World" >> $GITHUB_OUTPUT
-        run: echo "RESULT=Hello World" >> $GITHUB_ENV
+        run: echo "RESULT=Hello World" >> $GITHUB_OUTPUT
         
 
       - name: Step 2 - use output
-        run: echo "Step 1 said $RESULT"
-        # run: echo Step 1 said ${{ steps.step3_id.outputs.RESULT }}
+        run: |
+         echo Step 1 said: ${{ steps.step3_id.outputs.RESULT }}
 
 
 
