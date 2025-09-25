@@ -1,4 +1,4 @@
-name: reusable_wf
+name: a_reusable_wf
 on:
   workflow_dispatch:
   workflow_call:
