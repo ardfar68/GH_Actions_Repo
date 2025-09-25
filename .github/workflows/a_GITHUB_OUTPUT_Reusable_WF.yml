@@ -36,4 +36,4 @@ jobs:
 
       - name: step2, write to output
         id: multiplication
-        run: echo "multiResult=4 * 6" >> $GITHUB_OUTPUT
+        run: echo "multiResult=$(4 * 6)" >> $GITHUB_OUTPUT
