@@ -1,9 +1,9 @@
 name: test GITHUB_OUTPUT using outputs
 on:
   workflow_dispatch:
-  push:
-    branches: 
-      - dev
+  # push:
+  #   branches: 
+  #     - dev
   #   branches-ignore:
   #     - dev
 
@@ -18,8 +18,7 @@ jobs:
       calculateSum: ${{ steps.step1_id.outputs.sumResult }}
       calculateMulti: ${{ steps.step2_id.outputs.multiResult }}
   
-    steps:    
-
+    steps:
       - name: step1, to be passed to another jobs
         id: step1_id
         run: echo sumResult=$((10 + 10)) >> $GITHUB_OUTPUT
