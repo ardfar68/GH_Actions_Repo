@@ -1,4 +1,4 @@
-name: GITHUB_OUTPUT_wf_job
+name: reusable_wf
 on:
   workflow_dispatch:
   workflow_call:
