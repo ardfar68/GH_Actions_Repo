@@ -1,5 +1,6 @@
 name: GITHUB_OUTPUT_wf_job
 on:
+  workflow_dispatch:
   workflow_call:
     outputs:
       finalSum:
