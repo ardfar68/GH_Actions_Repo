@@ -7,7 +7,7 @@ on:
         description: "The sum from job1"
         value: ${{ jobs.job2.outputs.calcMulti }}
 
-        # value: ${{ jobs.job1.outputs.calculateSum }}
+       
 
 jobs:
 
@@ -36,4 +36,4 @@ jobs:
 
       - name: step2, write to output
         id: multiplication
-        run: echo "multiResult=$(4 * 6)" >> $GITHUB_OUTPUT
+        run: echo "multiResult=$((4 * 6))" >> $GITHUB_OUTPUT
