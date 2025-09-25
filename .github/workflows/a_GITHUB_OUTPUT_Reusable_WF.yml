@@ -5,7 +5,9 @@ on:
     outputs:
       finalSum:
         description: "The sum from job1"
-        value: ${{ jobs.job1.outputs.calculateSum }}
+        value: ${{ jobs.job2.outputs.calcMulti }}
+
+        # value: ${{ jobs.job1.outputs.calculateSum }}
 
 jobs:
 
@@ -17,13 +19,21 @@ jobs:
       calculateSum: ${{ steps.calc.outputs.sumResult }}
     steps:
       - id: calc
+        name: step1 in job1
         run: echo "sumResult=42" >> $GITHUB_OUTPUT
 
 
   job2:
     name: hello job2
     runs-on: ubuntu-latest
+    outputs:
+      calcMulti: ${{ steps.multiplication.outputs.multiResult }}
     needs: job1
+
     steps:
-      - name: print job1 output
+      - name: step1, print job1 output
         run: echo print calculateSum from job1 ${{ needs.job1.outputs.calculateSum }}
+
+      - name: step2, write to output
+        id: multiplication
+        run: echo "multiResult=4 * 6" >> $GITHUB_OUTPUT
