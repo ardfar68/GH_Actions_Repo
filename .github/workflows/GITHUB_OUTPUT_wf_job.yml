@@ -26,5 +26,4 @@ jobs:
     needs: job1
     steps:
       - name: print job1 output
-        run: |
-          echo "print calculateSum from job1: {{ needs.job1.outputs.calculateSum }}"
+        run: echo "print calculateSum from job1 {{ needs.job1.outputs.calculateSum }}"
