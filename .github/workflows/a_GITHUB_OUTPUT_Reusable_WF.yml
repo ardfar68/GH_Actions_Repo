@@ -10,6 +10,11 @@ on:
       finalMulti: 
         description: "The product from job2" 
         value: ${{ jobs.job2.outputs.calculateMulti }}
+  push:
+    branches:
+      - dev
+      
+
 
 
 jobs:
