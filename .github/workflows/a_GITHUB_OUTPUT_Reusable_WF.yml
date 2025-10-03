@@ -68,4 +68,6 @@ jobs:
           echo ${{ needs.job1.outputs.calculateSum }}
           echo ${{ needs.job1.outputs.calculateDivision }}
 
-          echo print calculateSum and calculateDivision from job1:
+          echo print multiply and subtract results from job2:
+          echo ${{ steps.multi.outputs.multiResult }}
+          echo ${{ steps.multi.outputs.subtractResult }}
