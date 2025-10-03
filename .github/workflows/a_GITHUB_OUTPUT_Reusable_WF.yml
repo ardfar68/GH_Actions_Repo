@@ -5,12 +5,16 @@ on:
     outputs:
       finalSum:
         description: "The sum from job1"
-        value: ${{ jobs.job2.outputs.calcMulti }}
+        value: ${{ jobs.job1.outputs.calculateSum }}
+      
+      finalMulti: 
+        description: "The product from job2" 
+        value: ${{ jobs.job2.outputs.calculateMulti }}
+
 
        
 
 jobs:
-
 
   job1:
     name: hello job1
@@ -27,7 +31,7 @@ jobs:
     name: hello job2
     runs-on: ubuntu-latest
     outputs:
-      calcMulti: ${{ steps.multiplication.outputs.multiResult }}
+      calculateMulti: ${{ steps.multiplication.outputs.multiResult }}
     needs: job1
 
     steps:
