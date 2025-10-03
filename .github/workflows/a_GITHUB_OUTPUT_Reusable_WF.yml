@@ -4,12 +4,20 @@ on:
   workflow_call:
     outputs:
       finalSum:
-        description: "The sum from job1"
+        description: The sum from job1
         value: ${{ jobs.job1.outputs.calculateSum }}
       
-      finalMulti: 
-        description: "The product from job2" 
+      finalDivision: 
+        description: The division from job1
+        value: ${{ jobs.job1.outputs.calculateDivision }}
+      
+      finalMulti:
+        description: The multiplication from job2
         value: ${{ jobs.job2.outputs.calculateMulti }}
+      
+      finalSubtraction:
+        description: The subtraction from job2
+        value: ${{ jobs.job2.outputs.calculateSubtraction }}
   push:
     branches:
       - dev
@@ -23,24 +31,39 @@ jobs:
     name: hello job1
     runs-on: ubuntu-latest
     outputs:
-      calculateSum: ${{ steps.calc.outputs.sumResult }}
+      calculateSum: ${{ steps.sum.outputs.sumResult }}
+      calculateDivision: ${{ steps.divide.outputs.divisionResult }}
+
     steps:
-      - id: calc
-        name: step1 in job1
+      - name: write sum result to output
+        id: sum
         run: echo "sumResult=$((15 + 35))" >> $GITHUB_OUTPUT
+
+      - name: write division result to output
+        id: divide
+        run: echo "divisionResult=$((100 / 4))" >> $GITHUB_OUTPUT
+
 
 
   job2:
     name: hello job2
     runs-on: ubuntu-latest
     outputs:
-      calculateMulti: ${{ steps.multiplication.outputs.multiResult }}
+      calculateMulti: ${{ steps.multi.outputs.multiResult }}
+      calculateSubtraction: ${{ steps.subtract.outputs.subtractResult }}
     needs: job1
 
     steps:
-      - name: step1, print job1 output
-        run: echo print calculateSum from job1 ${{ needs.job1.outputs.calculateSum }}
-
-      - name: step2, write to output
-        id: multiplication
+      - name: write multiplication result to output
+        id: multi
         run: echo "multiResult=$((4 * 6))" >> $GITHUB_OUTPUT
+
+      - name: write subtraction result to output
+        id: subtract
+        run: echo "subtractResult=$((27 - 7))" >> $GITHUB_OUTPUT
+      
+      - name: step1, print job1 output
+        run: |
+          echo print calculateSum and calculateDivision from job1:
+          echo ${{ needs.job1.outputs.calculateSum }}
+          echo ${{ needs.job1.outputs.calculateDivision }}
