@@ -12,8 +12,6 @@ on:
         value: ${{ jobs.job2.outputs.calculateMulti }}
 
 
-       
-
 jobs:
 
   job1:

@@ -11,4 +11,6 @@ jobs:
     needs: job1_in_caller_wf
     steps:
       - name: Print finalSum from reusable workflow
-        run: echo finalSum from called workflow ${{ needs.job1_in_caller_wf.outputs.finalSum }}
+        run: |
+          echo finalSum from called workflow:"
+          echo ${{ needs.job1_in_caller_wf.outputs.finalSum }}
