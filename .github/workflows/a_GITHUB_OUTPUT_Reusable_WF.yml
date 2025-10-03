@@ -67,3 +67,5 @@ jobs:
           echo print calculateSum and calculateDivision from job1:
           echo ${{ needs.job1.outputs.calculateSum }}
           echo ${{ needs.job1.outputs.calculateDivision }}
+
+          echo print calculateSum and calculateDivision from job1:
