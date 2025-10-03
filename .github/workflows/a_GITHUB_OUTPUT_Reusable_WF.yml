@@ -24,7 +24,7 @@ jobs:
     steps:
       - id: calc
         name: step1 in job1
-        run: echo "sumResult=42" >> $GITHUB_OUTPUT
+        run: echo "sumResult=$((15 + 35))" >> $GITHUB_OUTPUT
 
 
   job2:
