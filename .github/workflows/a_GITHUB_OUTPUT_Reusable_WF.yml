@@ -6,13 +6,13 @@ on:
       finalSum:
         description: The sum from job1
         value: > 
-          First value: ${{ jobs.job1.outputs.calculateSum1 }}
+          First value: ${{ jobs.job1.outputs.calculateSum1 }},
           Second value: ${{ jobs.job1.outputs.calculateSum2 }}
       
       finalDivision: 
         description: The division from job1
         value: >
-          First value: ${{ jobs.job1.outputs.calculateDivision1 }} ,
+          First value: ${{ jobs.job1.outputs.calculateDivision1 }},
           Second value: ${{ jobs.job1.outputs.calculateDivision2 }}
       
       finalMulti:
@@ -60,10 +60,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       calculateMulti: >
-        First value: ${{ steps.multi.outputs.multiResult1 }}
+        First value: ${{ steps.multi.outputs.multiResult1 }},
         Second value: ${{ steps.multi.outputs.multiResult2 }}
+      
       calculateSubtraction: >
-        First value: ${{ steps.subtract.outputs.subtractResult1 }}
+        First value: ${{ steps.subtract.outputs.subtractResult1 }},
         Second value: ${{ steps.subtract.outputs.subtractResult1 }}
     needs: job1
 
