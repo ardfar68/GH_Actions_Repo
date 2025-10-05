@@ -5,11 +5,13 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: "first value: ${{ jobs.job1.outputs.calculateSum1 }} second value: ${{ jobs.job1.outputs.calculateSum2 }}"
+        value: "First value: ${{ jobs.job1.outputs.calculateSum1 }} /
+                Second value: ${{ jobs.job1.outputs.calculateSum2 }}"
       
       finalDivision: 
         description: The division from job1
-        value: ${{ jobs.job1.outputs.calculateDivision1 }} 
+        value: "First value: ${{ jobs.job1.outputs.calculateDivision1 }} /
+                Second value: ${{ jobs.job1.outputs.calculateDivision2 }}"
       
       finalMulti:
         description: The multiplication from job2
@@ -37,13 +39,13 @@ jobs:
       calculateDivision2: ${{ steps.divide.outputs.divisionResult2 }}
 
     steps:
-      - name: write sum result to output
+      - name: Write sum result to output
         id: sum
         run: |
           echo "sumResult1=$((15 + 35))" >> $GITHUB_OUTPUT
           echo "sumResult2=$((120 + 35))" >> $GITHUB_OUTPUT
 
-      - name: write division result to output
+      - name: Write division result to output
         id: divide
         run: |
           echo "divisionResult1=$((100 / 4))" >> $GITHUB_OUTPUT
@@ -55,25 +57,35 @@ jobs:
     name: hello job2
     runs-on: ubuntu-latest
     outputs:
-      calculateMulti: ${{ steps.multi.outputs.multiResult }}
-      calculateSubtraction: ${{ steps.subtract.outputs.subtractResult }}
+      calculateMulti: " First value: ${{ steps.multi.outputs.multiResult1 }} /
+                        Second value: ${{ steps.multi.outputs.multiResult2 }}"
+      calculateSubtraction: " First value: ${{ steps.subtract.outputs.subtractResult1 }} /
+                              Second value: ${{ steps.subtract.outputs.subtractResult1 }}"
     needs: job1
 
     steps:
-      - name: write multiplication result to output
+      - name: Write multiplication result to output
         id: multi
-        run: echo "multiResult=$((4 * 6))" >> $GITHUB_OUTPUT
+        run: |
+          echo "multiResult1=$((4 * 6))" >> $GITHUB_OUTPUT
+          echo "multiResult2=$((4 * 6))" >> $GITHUB_OUTPUT
 
-      - name: write subtraction result to output
+      - name: Write subtraction result to output
         id: subtract
-        run: echo "subtractResult=$((27 - 7))" >> $GITHUB_OUTPUT
+        run: |
+          echo "subtractResult1=$((27 - 7))" >> $GITHUB_OUTPUT
+          echo "subtractResult2=$((27 - 7))" >> $GITHUB_OUTPUT
       
       - name: step1, print job1 output
         run: |
-          echo print calculateSum and calculateDivision from job1:
-          echo ${{ needs.job1.outputs.calculateSum }}
-          echo ${{ needs.job1.outputs.calculateDivision }}
+          echo print sumResult and divisionResult from job1:
+          echo ${{ needs.job1.outputs.calculateSum1 }}
+          echo ${{ needs.job1.outputs.calculateSum2 }}
+          echo ${{ needs.job1.outputs.calculateDivision1 }}
+          echo ${{ needs.job1.outputs.calculateDivision2 }}
 
-          echo print multiply and subtract results from job2:
-          echo ${{ steps.multi.outputs.multiResult }}
-          echo ${{ steps.multi.outputs.subtractResult }}
+          echo print multiplyResult and subtractResult from job2:
+          echo ${{ steps.multi.outputs.multiResult1 }}
+          echo ${{ steps.multi.outputs.multiResult2 }}
+          echo ${{ steps.subtract.outputs.subtractResult1 }}
+          echo ${{ steps.subtract.outputs.subtractResult2 }}
