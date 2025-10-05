@@ -20,7 +20,7 @@ on:
         value: ${{ jobs.job2.outputs.calculateSubtraction }}
   push:
     branches:
-      - dev
+      - dev1
       
 
 

@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
   # push:
   #   branches: 
-  #     - dev
+  #     - dev1
   #   branches-ignore:
-  #     - dev
+  #     - dev1
 
 jobs:
 

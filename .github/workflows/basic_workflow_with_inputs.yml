@@ -2,7 +2,7 @@ name: Basic Workflow with inputs
 on:
   # push:
   #   branches:
-  #     - dev
+  #     - dev1
   workflow_dispatch:
     inputs:
       base_url:

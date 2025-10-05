@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - dev
+      - dev1
 
 jobs:
   job1_in_caller_wf:
