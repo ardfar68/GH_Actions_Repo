@@ -59,10 +59,12 @@ jobs:
     name: hello job2
     runs-on: ubuntu-latest
     outputs:
-      calculateMulti: " First value: ${{ steps.multi.outputs.multiResult1 }} /
-                        Second value: ${{ steps.multi.outputs.multiResult2 }}"
-      calculateSubtraction: " First value: ${{ steps.subtract.outputs.subtractResult1 }} /
-                              Second value: ${{ steps.subtract.outputs.subtractResult1 }}"
+      calculateMulti: >
+        First value: ${{ steps.multi.outputs.multiResult1 }}
+        Second value: ${{ steps.multi.outputs.multiResult2 }}
+      calculateSubtraction: >
+        First value: ${{ steps.subtract.outputs.subtractResult1 }}
+        Second value: ${{ steps.subtract.outputs.subtractResult1 }}
     needs: job1
 
     steps:
