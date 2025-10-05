@@ -5,7 +5,7 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: ${{ jobs.job1.outputs.calculateSum1 }} ${{ jobs.job1.outputs.calculateSum2 }}
+        value: "first value: ${{ jobs.job1.outputs.calculateSum1 }} second value: ${{ jobs.job1.outputs.calculateSum2 }}"
       
       finalDivision: 
         description: The division from job1
