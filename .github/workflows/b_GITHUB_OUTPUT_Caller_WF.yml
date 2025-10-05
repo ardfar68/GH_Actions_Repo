@@ -16,14 +16,14 @@ jobs:
       - name: Print the four arithmetic operations from reusable workflow
         run: |
           printf "%-50s %s\n" \
-            "sum result from reusable-wf job1:" \
-            "${{ needs.job1_in_caller_wf.outputs.finalSum }}"
+          "sum result from reusable-wf job1:" \
+          "${{ needs.job1_in_caller_wf.outputs.finalSum }}"
           printf "%-50s %s\n" \
-            "division result from reusable-wf job1:" \
-            "${{ needs.job1_in_caller_wf.outputs.finalDivision }}"
+          "division result from reusable-wf job1:" \
+          "${{ needs.job1_in_caller_wf.outputs.finalDivision }}"
           printf "%-50s %s\n" \
-            "multiplication result from reusable-wf job2:" \
-            "${{ needs.job1_in_caller_wf.outputs.finalMulti }}"
+          "multiplication result from reusable-wf job2:" \
+          "${{ needs.job1_in_caller_wf.outputs.finalMulti }}"
           printf "%-50s %s\n" \
-            "subtraction result from reusable-wf job2:" \
-            "${{ needs.job1_in_caller_wf.outputs.finalSubtraction }}"
+          "subtraction result from reusable-wf job2:" \
+          "${{ needs.job1_in_caller_wf.outputs.finalSubtraction }}"
