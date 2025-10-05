@@ -5,11 +5,11 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: ${{ jobs.job1.outputs.calculateSum }}
+        value: ${{ jobs.job1.outputs.calculateSum1 }} ${{ jobs.job1.outputs.calculateSum2 }}
       
       finalDivision: 
         description: The division from job1
-        value: ${{ jobs.job1.outputs.calculateDivision }}
+        value: ${{ jobs.job1.outputs.calculateDivision1 }} 
       
       finalMulti:
         description: The multiplication from job2
@@ -31,17 +31,23 @@ jobs:
     name: hello job1
     runs-on: ubuntu-latest
     outputs:
-      calculateSum: ${{ steps.sum.outputs.sumResult }}
-      calculateDivision: ${{ steps.divide.outputs.divisionResult }}
+      calculateSum1: ${{ steps.sum.outputs.sumResult1 }}
+      calculateSum2: ${{ steps.sum.outputs.sumResult2 }}
+      calculateDivision1: ${{ steps.divide.outputs.divisionResult1 }}
+      calculateDivision2: ${{ steps.divide.outputs.divisionResult2 }}
 
     steps:
       - name: write sum result to output
         id: sum
-        run: echo "sumResult=$((15 + 35))" >> $GITHUB_OUTPUT
+        run: |
+          echo "sumResult1=$((15 + 35))" >> $GITHUB_OUTPUT
+          echo "sumResult2=$((120 + 35))" >> $GITHUB_OUTPUT
 
       - name: write division result to output
         id: divide
-        run: echo "divisionResult=$((100 / 4))" >> $GITHUB_OUTPUT
+        run: |
+          echo "divisionResult1=$((100 / 4))" >> $GITHUB_OUTPUT
+          echo "divisionResult2=$((100 / 10))" >> $GITHUB_OUTPUT
 
 
 
