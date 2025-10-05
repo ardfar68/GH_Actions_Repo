@@ -5,13 +5,15 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: "First value: ${{ jobs.job1.outputs.calculateSum1 }} /
-                Second value: ${{ jobs.job1.outputs.calculateSum2 }}"
+        value: > 
+          First value: ${{ jobs.job1.outputs.calculateSum1 }}
+          Second value: ${{ jobs.job1.outputs.calculateSum2 }}
       
       finalDivision: 
         description: The division from job1
-        value: "First value: ${{ jobs.job1.outputs.calculateDivision1 }} /
-                Second value: ${{ jobs.job1.outputs.calculateDivision2 }}"
+        value: >
+          First value: ${{ jobs.job1.outputs.calculateDivision1 }}
+          Second value: ${{ jobs.job1.outputs.calculateDivision2 }}
       
       finalMulti:
         description: The multiplication from job2
@@ -76,16 +78,16 @@ jobs:
           echo "subtractResult1=$((120 - 10))" >> $GITHUB_OUTPUT
           echo "subtractResult2=$((130 - 10))" >> $GITHUB_OUTPUT
       
-      - name: step1, print job1 output
+      - name: print job1 output
         run: |
-          echo print sumResult and divisionResult from job1:
           echo job1 sumResult1: ${{ needs.job1.outputs.calculateSum1 }}
           echo job1 sumResult2: ${{ needs.job1.outputs.calculateSum2 }}
-          echo ob1 divisionResult1: ${{ needs.job1.outputs.calculateDivision1 }}
-          echo ob1 divisionResult2: ${{ needs.job1.outputs.calculateDivision2 }}
+          echo job1 divisionResult1: ${{ needs.job1.outputs.calculateDivision1 }}
+          echo job1 divisionResult2: ${{ needs.job1.outputs.calculateDivision2 }}
 
-          echo print multiplyResult and subtractResult from job2:
-          echo ob2 multiResult1: ${{ steps.multi.outputs.multiResult1 }}
-          echo ob2 multiResult2:  ${{ steps.multi.outputs.multiResult2 }}
-          echo ob2 subtractResult1:  ${{ steps.subtract.outputs.subtractResult1 }}
-          echo ob2 subtractResult2:  ${{ steps.subtract.outputs.subtractResult2 }}
+      - name: print job2 output
+        run: |
+          echo job2 multiResult1: ${{ steps.multi.outputs.multiResult1 }}
+          echo job2 multiResult2:  ${{ steps.multi.outputs.multiResult2 }}
+          echo job2 subtractResult1:  ${{ steps.subtract.outputs.subtractResult1 }}
+          echo job2 subtractResult2:  ${{ steps.subtract.outputs.subtractResult2 }}
