@@ -17,11 +17,15 @@ on:
       
       finalMulti:
         description: The multiplication from job2
-        value: ${{ jobs.job2.outputs.calculateMulti }}
+        value: >
+          First value: ${{ jobs.job2.outputs.calculateMulti1 }}
+          Second value: ${{ jobs.job2.outputs.calculateMulti2 }}
       
       finalSubtraction:
         description: The subtraction from job2
-        value: ${{ jobs.job2.outputs.calculateSubtraction }}
+        value: >
+          First value: ${{ jobs.job2.outputs.calculateSubtraction1 }}
+          Second value: ${{ jobs.job2.outputs.calculateSubtraction2 }}
   push:
     branches:
       - dev1
@@ -59,13 +63,12 @@ jobs:
     name: hello job2
     runs-on: ubuntu-latest
     outputs:
-      calculateMulti: >
-        First value: ${{ steps.multi.outputs.multiResult1 }},
-        Second value: ${{ steps.multi.outputs.multiResult2 }}
+      calculateMulti1: ${{ steps.multi.outputs.multiResult1 }}
+      calculateMulti2: ${{ steps.multi.outputs.multiResult2 }}
       
-      calculateSubtraction: >
-        First value: ${{ steps.subtract.outputs.subtractResult1 }},
-        Second value: ${{ steps.subtract.outputs.subtractResult1 }}
+      calculateSubtraction1: ${{ steps.subtract.outputs.subtractResult1 }}
+      calculateSubtraction2: ${{ steps.subtract.outputs.subtractResult2 }}
+
     needs: job1
 
     steps:
