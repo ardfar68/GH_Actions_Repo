@@ -12,7 +12,7 @@ on:
       finalDivision: 
         description: The division from job1
         value: >
-          First value: ${{ jobs.job1.outputs.calculateDivision1 }}
+          First value: ${{ jobs.job1.outputs.calculateDivision1 }} ,
           Second value: ${{ jobs.job1.outputs.calculateDivision2 }}
       
       finalMulti:
