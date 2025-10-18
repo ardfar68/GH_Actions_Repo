@@ -1,7 +1,21 @@
 name: a1_reusable_wf
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dev1
   workflow_call:
+    inputs:
+      exampleInput:
+        description: "A secret the caller must provide"
+        required: true
+        type: string
+        
+    secrets:
+      MY_SECRET:
+        description: "A secret the caller must provide"
+        required: true
+  
     outputs:
       finalSum:
         description: The sum from job1
@@ -26,12 +40,8 @@ on:
         value: >
           First value: ${{ jobs.job2.outputs.calculateSubtraction1 }}
           Second value: ${{ jobs.job2.outputs.calculateSubtraction2 }}
-  push:
-    branches:
-      - dev1
+
       
-
-
 
 jobs:
 
