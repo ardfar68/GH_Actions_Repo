@@ -7,13 +7,13 @@ on:
   workflow_call:
     inputs:
       exampleInput:
-        description: "A secret the caller must provide"
+        description: A secret the caller must provide
         required: true
         type: string
         
     secrets:
       MY_SECRET:
-        description: "A secret the caller must provide"
+        description: A secret the caller must provide
         required: true
   
     outputs:
@@ -58,14 +58,14 @@ jobs:
       - name: Write sum result to output
         id: sum
         run: |
-          echo "sumResult1=$((15 + 35))" >> $GITHUB_OUTPUT
-          echo "sumResult2=$((20 + 40))" >> $GITHUB_OUTPUT
+          echo sumResult1=$((15 + 35)) >> $GITHUB_OUTPUT
+          echo sumResult2=$((20 + 40)) >> $GITHUB_OUTPUT
 
       - name: Write division result to output
         id: divide
         run: |
-          echo "divisionResult1=$((140 / 2))" >> $GITHUB_OUTPUT
-          echo "divisionResult2=$((160 / 2))" >> $GITHUB_OUTPUT
+          echo divisionResult1=$((140 / 2)) >> $GITHUB_OUTPUT
+          echo divisionResult2=$((160 / 2)) >> $GITHUB_OUTPUT
 
 
 
@@ -90,8 +90,8 @@ jobs:
       - name: Write subtraction result to output
         id: subtract
         run: |
-          echo "subtractResult1=$((120 - 10))" >> $GITHUB_OUTPUT
-          echo "subtractResult2=$((130 - 10))" >> $GITHUB_OUTPUT
+          echo subtractResult1=$((120 - 10)) >> $GITHUB_OUTPUT
+          echo subtractResult2=$((130 - 10)) >> $GITHUB_OUTPUT
       
       - name: print job2 output
         run: |
