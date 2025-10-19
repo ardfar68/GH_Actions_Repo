@@ -84,8 +84,8 @@ jobs:
       - name: Write multiplication result to output
         id: multi
         run: |
-          echo "multiResult1=$((9 * 10))" >> $GITHUB_OUTPUT
-          echo "multiResult2=$((10 * 10))" >> $GITHUB_OUTPUT
+          echo multiResult1=$((9 * 10)) >> $GITHUB_OUTPUT
+          echo multiResult2=$((10 * 10)) >> $GITHUB_OUTPUT
 
       - name: Write subtraction result to output
         id: subtract
