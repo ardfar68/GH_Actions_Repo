@@ -54,25 +54,26 @@ jobs:
       - name: Write sum result to output
         id: sum
         run: |
-          echo sumResult=$((40 + 10)) >> $GITHUB_OUTPUT
+          echo sumResult=$((50 + 10)) >> $GITHUB_OUTPUT
 
       - name: Write subtraction result to output
         id: subtract
         run: |
-          echo subtractResult=$((70 - 10)) >> $GITHUB_OUTPUT
+          echo subtractResult=$((80 - 10)) >> $GITHUB_OUTPUT
 
       - name: Write multiplication result to output
         id: multi
         run: |
-          echo multiResult=$((7 * 10)) >> $GITHUB_OUTPUT
+          echo multiResult=$((8 * 10)) >> $GITHUB_OUTPUT
         
       - name: Write division result to output
         id: divide
         run: |
-          echo divisionResult=$((160 / 2)) >> $GITHUB_OUTPUT
-    
-
-
+          echo divisionResult=$((180 / 2)) >> $GITHUB_OUTPUT
+      
+      - name: Read sum result from output
+        run: |
+          echo job1 sum result: ${{ steps.sum.outputs.sum }}
 
   read_from_output:
     name: Read the result from arithmetic operations
@@ -80,7 +81,7 @@ jobs:
     needs: write_to_output
 
     steps:
-      - name: write some arithmetic operations to output
+      - name: Write some arithmetic operations to output
         id: operations
         run: |
           echo sum=$((10 + 10)) >> $GITHUB_OUTPUT
@@ -89,14 +90,14 @@ jobs:
           echo division=$((100 / 2)) >> $GITHUB_OUTPUT
 
 
-      - name: print job2 output
+      - name: Print job2 output
         run: |
           echo job2: sum result: ${{ steps.operations.outputs.sum }}
           echo job2: subtraction result:  ${{ steps.operations.outputs.subtraction }}
           echo job2: multiplication result:  ${{ steps.operations.outputs.multiplication }}
           echo job2: division result:  ${{ steps.operations.outputs.division }}
 
-      - name: print job1 output
+      - name: Print job1 output
         run: |
           echo job1: sum result: ${{ needs.write_to_output.outputs.sum }}
           echo job1: division result: ${{ needs.write_to_output.outputs.division }}
