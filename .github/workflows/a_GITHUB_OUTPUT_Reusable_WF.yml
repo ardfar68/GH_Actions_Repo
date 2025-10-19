@@ -23,9 +23,9 @@ on:
           First value: ${{ jobs.write_to_output.outputs.sum }}
       
       finalDivision: 
-        description: The division from job1
+        description: The subtraction from job1
         value: >
-          First value: ${{ jobs.write_to_output.outputs.division }}
+          First value: ${{ jobs.write_to_output.outputs.subtraction }}
       
       finalMulti:
         description: The multiplication from job2
@@ -33,9 +33,9 @@ on:
           First value: ${{ jobs.write_to_output.outputs.multiplication }}
       
       finalSubtraction:
-        description: The subtraction from job2
+        description: The division from job2
         value: >
-          First value: ${{ jobs.write_to_output.outputs.subtraction }}
+          First value: ${{ jobs.write_to_output.outputs.division }}
 
       
 
@@ -45,35 +45,34 @@ jobs:
     name: write arithmetic operations to output
     runs-on: ubuntu-latest
     outputs:
-      sum: ${{ steps.sum.outputs.sumResult }}
-      division: ${{ steps.divide.outputs.divisionResult }}
-      multiplication: ${{ steps.multi.outputs.multiResult }}
-      subtraction: ${{ steps.subtract.outputs.subtractResult }}
+      sum: ${{ steps.sum.outputs.sum }}
+      subtraction: ${{ steps.subtract.outputs.subtraction }}
+      multiplication: ${{ steps.multi.outputs.multiplication }}
+      division: ${{ steps.divide.outputs.division }}
 
     steps:
       - name: Write sum result to output
         id: sum
-        run: |
-          echo sumResult=$((50 + 10)) >> $GITHUB_OUTPUT
+        run: echo sum=$((50 + 10)) >> $GITHUB_OUTPUT
 
       - name: Write subtraction result to output
         id: subtract
-        run: |
-          echo subtractResult=$((80 - 10)) >> $GITHUB_OUTPUT
+        run: echo subtraction=$((80 - 10)) >> $GITHUB_OUTPUT
 
       - name: Write multiplication result to output
         id: multi
-        run: |
-          echo multiResult=$((8 * 10)) >> $GITHUB_OUTPUT
+        run: echo multiplication=$((8 * 10)) >> $GITHUB_OUTPUT
         
       - name: Write division result to output
         id: divide
-        run: |
-          echo divisionResult=$((180 / 2)) >> $GITHUB_OUTPUT
+        run: echo division=$((180 / 2)) >> $GITHUB_OUTPUT
       
       - name: Read sum result from output
         run: |
-          echo job1 sum result: ${{ steps.sum.outputs.sumResult }}
+          echo job1 sum result: ${{ steps.sum.outputs.sum }}
+          echo job1 subtraction result: ${{ steps.subtract.outputs.subtraction }}
+          echo job1 multiplication result: ${{ steps.multi.outputs.multiplication }}
+          echo job1 division result: ${{ steps.divide.outputs.division }}
 
   read_from_output:
     name: Read the result from arithmetic operations
