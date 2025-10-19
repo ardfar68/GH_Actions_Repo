@@ -19,9 +19,8 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: "First value: ${{ jobs.write_to_output.outputs.sum }}"
-        # value: > 
-        #   First value: ${{ jobs.write_to_output.outputs.sum }}
+        value: > 
+          First value: ${{ jobs.write_to_output.outputs.sum }}
       
       finalDivision: 
         description: The subtraction from job1
@@ -38,7 +37,18 @@ on:
         value: >
           First value: ${{ jobs.write_to_output.outputs.division }}
 
+    # outputs:
+    #   all_results:
+    #     description: The results from job1
+    #     value: > 
+    #       sum: ${{ jobs.write_to_output.outputs.sum }}
+    #       subtraction: ${{ jobs.write_to_output.outputs.subtraction }}
+    #       multiplication: ${{ jobs.write_to_output.outputs.multiplication }}
+    #       division: ${{ jobs.write_to_output.outputs.division }}
       
+      
+          
+          
 
 jobs:
 
