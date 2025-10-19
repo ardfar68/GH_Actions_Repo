@@ -19,8 +19,9 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: > 
-          First value: ${{ jobs.write_to_output.outputs.sum }}
+        value: "First value: ${{ jobs.write_to_output.outputs.sum }}"
+        # value: > 
+        #   First value: ${{ jobs.write_to_output.outputs.sum }}
       
       finalDivision: 
         description: The subtraction from job1
@@ -77,6 +78,11 @@ jobs:
   read_from_output:
     name: Read the result from arithmetic operations
     runs-on: ubuntu-latest
+    outputs:
+      sum: ${{ steps.operations.outputs.sum }}
+      subtraction: ${{ steps.operations.outputs.subtraction }}
+      multiplication: ${{ steps.operations.outputs.multiplication }}
+      division: ${{ steps.operations.outputs.division }}
     needs: write_to_output
 
     steps:
