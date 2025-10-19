@@ -40,8 +40,8 @@ on:
       
 
 jobs:
-  write_to_output:
 
+  write_to_output:
     name: write arithmetic operations to output
     runs-on: ubuntu-latest
     outputs:
@@ -73,7 +73,7 @@ jobs:
       
       - name: Read sum result from output
         run: |
-          echo job1 sum result: ${{ steps.sum.outputs.sum }}
+          echo job1 sum result: ${{ steps.sum.outputs.sumResult }}
 
   read_from_output:
     name: Read the result from arithmetic operations
