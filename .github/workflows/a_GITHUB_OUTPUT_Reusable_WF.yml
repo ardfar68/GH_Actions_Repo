@@ -80,6 +80,8 @@ jobs:
           echo job1 subtraction result: ${{ steps.subtract.outputs.subtraction }}
           echo job1 multiplication result: ${{ steps.multi.outputs.multiplication }}
           echo job1 division result: ${{ steps.divide.outputs.division }}
+      - name: Print github.ref
+        run: echo ${{github.ref}}
 
   read_from_output:
     name: Read the result from arithmetic operations
