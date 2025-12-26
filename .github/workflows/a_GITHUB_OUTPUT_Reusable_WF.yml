@@ -82,6 +82,7 @@ jobs:
           echo job1 division result: ${{ steps.divide.outputs.division }}
       
       - name: Print github.ref
+        id: print-github-context
         run: |
           echo github.action is: ${{ github.action }}
           echo github.actor is: ${{ github.actor }}
