@@ -83,7 +83,7 @@ jobs:
       
       - name: Print github.ref
         run: |
-          echo "github.action is: ${{ github.action }}"
+          echo github.action is: ${{ github.action }}
           echo "github.actor is: ${{ github.actor }}"
           echo "github.event_name is_tbd: ${{ github.event_name }}"
           echo "github.job is: ${{ github.job }}"
