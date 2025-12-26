@@ -84,30 +84,30 @@ jobs:
       - name: Print github.ref
         run: |
           echo github.action is: ${{ github.action }}
-          echo "github.actor is: ${{ github.actor }}"
-          echo "github.event_name is_tbd: ${{ github.event_name }}"
-          echo "github.job is: ${{ github.job }}"
-          echo "github.ref is: ${{ github.ref }}"
-          echo "github.ref_name is: ${{ github.ref_name }}"
-          echo "github.ref_type is: ${{ github.ref_type }}"
-          echo "github.base_ref is: ${{ github.base_ref }}"
-          echo "github.head_ref is: ${{ github.head_ref }}"
-          echo "github.repository is: ${{ github.repository }}"
-          echo "github.repository_owner is: ${{ github.repository_owner }}"
-          echo "github.run_id is: ${{ github.run_id }}"
-          echo "github.run_number is: ${{ github.run_number }}"
-          echo "github.run_attempt is: ${{ github.run_attempt }}"
-          echo "github.workflow is: ${{ github.workflow }}"
-          echo "github.sha is: ${{ github.sha }}"
-          echo "github.workspace is: ${{ github.workspace }}"
-          echo "github.server_url is: ${{ github.server_url }}"
-          echo "github.api_url is: ${{ github.api_url }}"
-          echo "github.graphql_url is: ${{ github.graphql_url }}"
-          echo "runner.os is: ${{ runner.os }}"
-          echo "runner.arch is: ${{ runner.arch }}"
-          echo "runner.name is: ${{ runner.name }}"
-          echo "runner.temp is: ${{ runner.temp }}"
-          echo "runner.tool_cache is: ${{ runner.tool_cache }}"
+          echo github.actor is: ${{ github.actor }}
+          echo github.event_name is_tbd: ${{ github.event_name }}
+          echo github.job is: ${{ github.job }}
+          echo github.ref is: ${{ github.ref }}
+          echo github.ref_name is: ${{ github.ref_name }}
+          echo github.ref_type is: ${{ github.ref_type }}
+          echo github.base_ref is: ${{ github.base_ref }}
+          echo github.head_ref is: ${{ github.head_ref }}
+          echo github.repository is: ${{ github.repository }}
+          echo github.repository_owner is: ${{ github.repository_owner }}
+          echo github.run_id is: ${{ github.run_id }}
+          echo github.run_number is: ${{ github.run_number }}
+          echo github.run_attempt is: ${{ github.run_attempt }}
+          echo github.workflow is: ${{ github.workflow }}
+          echo github.sha is: ${{ github.sha }}
+          echo github.workspace is: ${{ github.workspace }}
+          echo github.server_url is: ${{ github.server_url }}
+          echo github.api_url is: ${{ github.api_url }}
+          echo github.graphql_url is: ${{ github.graphql_url }}
+          echo runner.os is: ${{runner.os }}
+          echo runner.arch is: ${{runner.arch }}
+          echo runner.name is: ${{runner.name }}
+          echo runner.temp is: ${{runner.temp }}
+          echo runner.tool_cache is: ${{runner.tool_cache }}
 
 
   read_from_output:
