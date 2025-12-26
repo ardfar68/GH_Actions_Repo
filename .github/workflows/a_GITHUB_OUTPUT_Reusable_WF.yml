@@ -115,11 +115,11 @@ jobs:
     name: Read the result from arithmetic operations
     runs-on: ubuntu-latest
     needs: write_to_output
-    outputs:
-      sum: ${{ steps.operations.outputs.sum }}
-      subtraction: ${{ steps.operations.outputs.subtraction }}
-      multiplication: ${{ steps.operations.outputs.multiplication }}
-      division: ${{ steps.operations.outputs.division }}
+    # outputs:
+    #   sum: ${{ steps.operations.outputs.sum }}
+    #   subtraction: ${{ steps.operations.outputs.subtraction }}
+    #   multiplication: ${{ steps.operations.outputs.multiplication }}
+    #   division: ${{ steps.operations.outputs.division }}
 
     steps:
       - name: Write some arithmetic operations to output
