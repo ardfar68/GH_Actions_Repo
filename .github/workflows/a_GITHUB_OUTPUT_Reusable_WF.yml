@@ -10,8 +10,7 @@ on:
         required: true
         type: string
 
-    
-        
+     
   workflow_call:
     inputs:
       exampleInput:
@@ -24,15 +23,34 @@ on:
         required: true
   
    
+    # Alt_1
+    # outputs:
+    #   allResults:
+    #     description: The results from job1 and job2
+    #     value: | 
+    #       sum: ${{ jobs.write_to_output.outputs.sum }}
+    #       subtraction: ${{ jobs.write_to_output.outputs.subtraction }}
+    #       multiplication: ${{ jobs.read_from_output.outputs.multiplication }}
+    #       division: ${{ jobs.read_from_output.outputs.division }}
+
+    # Alt_2
     outputs:
-      allResults:
-        description: The results from job1 and job2
-        value: | 
-          sum: ${{ jobs.write_to_output.outputs.sum }}
-          subtraction: ${{ jobs.write_to_output.outputs.subtraction }}
-          multiplication: ${{ jobs.read_from_output.outputs.multiplication }}
-          division: ${{ jobs.read_from_output.outputs.division }}
+      finalSum:
+        description: The sum from job1
+        value: First value ${{ jobs.write_to_output.outputs.sum }}
       
+      finalDivision: 
+        description: The subtraction from job1
+        value: First value ${{ jobs.write_to_output.outputs.subtraction }}
+      
+      finalMulti:
+        description: The multiplication from job2
+        value: First value ${{ jobs.read_from_output.outputs.multiplication }}
+      
+      finalSubtraction:
+        description: The division from job2
+        value: First value ${{ jobs.read_from_output.outputs.division }}
+
 
 jobs:
 
@@ -138,19 +156,4 @@ jobs:
           echo job1: subtraction result: ${{ needs.write_to_output.outputs.subtraction }}
 
 
- # outputs:
-    #   finalSum:
-    #     description: The sum from job1
-    #     value: First value ${{ jobs.write_to_output.outputs.sum }}
-      
-    #   finalDivision: 
-    #     description: The subtraction from job1
-    #     value: First value ${{ jobs.write_to_output.outputs.subtraction }}
-      
-    #   finalMulti:
-    #     description: The multiplication from job2
-    #     value: First value ${{ jobs.read_from_output.outputs.multiplication }}
-      
-    #   finalSubtraction:
-    #     description: The division from job2
-    #     value: First value ${{ jobs.read_from_output.outputs.division }}
+ 
