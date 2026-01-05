@@ -17,7 +17,7 @@ on:
         type: string
 
     secrets:
-      CALLER_SECRET:
+      asf_secret:
         description: A secret that caller must provide
         required: true
   
