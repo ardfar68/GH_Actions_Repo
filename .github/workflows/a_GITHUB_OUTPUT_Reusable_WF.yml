@@ -37,19 +37,19 @@ on:
     outputs:
       finalSum:
         description: The sum from job1
-        value: First value ${{ jobs.write_to_output.outputs.sum }}
+        value: First value ${{ jobs.job1_write_to_output.outputs.sum }}
       
       finalDivision: 
         description: The subtraction from job1
-        value: First value ${{ jobs.write_to_output.outputs.subtraction }}
+        value: First value ${{ jobs.job1_write_to_output.outputs.subtraction }}
       
       finalMulti:
         description: The multiplication from job2
-        value: First value ${{ jobs.read_from_output.outputs.multiplication }}
+        value: First value ${{ jobs.job1_write_to_output.outputs.multiplication }}
       
       finalSubtraction:
         description: The division from job2
-        value: First value ${{ jobs.read_from_output.outputs.division }}
+        value: First value ${{ jobs.job1_write_to_output.outputs.division }}
 
 
 jobs:
