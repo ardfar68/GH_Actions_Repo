@@ -13,13 +13,17 @@ on:
     
         
   workflow_call:
+    inputs:
+      exampleInput:
+        required: true
+        type: string
+
     secrets:
       MY_SECRET:
         description: A secret the caller must provide
         required: true
   
    
-
     outputs:
       allResults:
         description: The results from job1 and job2
