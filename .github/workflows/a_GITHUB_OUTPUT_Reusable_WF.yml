@@ -11,15 +11,15 @@ on:
         type: string
   
   workflow_call:
-    inputs:
-      exampleInput:
-        required: true
-        type: string
+    # inputs:
+    #   exampleInput:
+    #     required: true
+    #     type: string
 
-    secrets:
-      asf_secret:
-        description: A secret that caller must provide
-        required: true
+    # secrets:
+    #   asf_secret:
+    #     description: A secret that caller must provide
+    #     required: true
   
    
   # Alt_1
