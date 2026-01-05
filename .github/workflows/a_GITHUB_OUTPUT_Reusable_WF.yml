@@ -54,8 +54,8 @@ on:
 
 jobs:
 
-  write_to_output:
-    name: write arithmetic operations to output
+  job1_write_to_output:
+    # name: write arithmetic operations to output
     runs-on: ubuntu-latest
     outputs:
       sum: ${{ steps.sum.outputs.sum }}
@@ -69,20 +69,20 @@ jobs:
           echo The secret value is: ${{ secrets.MY_SECRET }}
           echo Example input is: ${{ inputs.exampleInput }}
 
-      # - name: Write sum result to output
-      - id: sum
+      - name: Write sum result to output
+        id: sum
         run: echo sum=$((50 + 10)) >> $GITHUB_OUTPUT
 
-      # - name: Write subtraction result to output
-      - id: subtract
+      - name: Write subtraction result to output
+        id: subtract
         run: echo subtraction=$((80 - 10)) >> $GITHUB_OUTPUT
 
-      # - name: Write multiplication result to output
-      - id: multi
+      - name: Write multiplication result to output
+        id: multi
         run: echo multiplication=$((8 * 10)) >> $GITHUB_OUTPUT
         
-      # - name: Write division result to output
-      - id: divide
+      - name: Write division result to output
+        id: divide
         run: echo division=$((180 / 2)) >> $GITHUB_OUTPUT
       
       - name: Read from same job
@@ -122,10 +122,10 @@ jobs:
           echo runner.tool_cache is: ${{runner.tool_cache }}
 
 
-  read_from_output:
+  job2_read_from_output:
     # name: Read the result from arithmetic operations
     runs-on: ubuntu-latest
-    needs: write_to_output
+    needs: job1_write_to_output
     outputs:
       sum: ${{ steps.operations.outputs.sum }}
       subtraction: ${{ steps.operations.outputs.subtraction }}
@@ -133,29 +133,27 @@ jobs:
       division: ${{ steps.operations.outputs.division }}
 
     steps:
-      # - name: Write some arithmetic operations to output
-      - id: operations
+      - name: Write some arithmetic operations to output
+        id: operations
         run: |
           echo sum=$((10 + 10)) >> $GITHUB_OUTPUT
           echo subtraction=$((40 - 10)) >> $GITHUB_OUTPUT
           echo multiplication=$((4 * 10)) >> $GITHUB_OUTPUT
           echo division=$((100 / 2)) >> $GITHUB_OUTPUT
 
-      # - name: Read from same job
-      - id: step2
+      - name: Read from same job
         run: |
           echo job2: sum result: ${{ steps.operations.outputs.sum }}
           echo job2: subtraction result:  ${{ steps.operations.outputs.subtraction }}
           echo job2: multiplication result:  ${{ steps.operations.outputs.multiplication }}
           echo job2: division result:  ${{ steps.operations.outputs.division }}
 
-      # - name: Read from another job
-      - id: step3
+      - name: Read from another job
         run: |
-          echo job1: sum result: ${{ needs.write_to_output.outputs.sum }}
-          echo job1: division result: ${{ needs.write_to_output.outputs.division }}
-          echo job1: multiplication result: ${{ needs.write_to_output.outputs.multiplication }}
-          echo job1: subtraction result: ${{ needs.write_to_output.outputs.subtraction }}
+          echo job1: sum result: ${{ needs.job1_write_to_output.outputs.sum }}
+          echo job1: division result: ${{ needs.job1_write_to_output.outputs.division }}
+          echo job1: multiplication result: ${{ needs.job1_write_to_output.outputs.multiplication }}
+          echo job1: subtraction result: ${{ needs.job1_write_to_output.outputs.subtraction }}
 
 
  
