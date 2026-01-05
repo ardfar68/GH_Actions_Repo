@@ -9,8 +9,7 @@ on:
         description: This is an example output
         required: true
         type: string
-
-     
+  
   workflow_call:
     inputs:
       exampleInput:
@@ -18,12 +17,12 @@ on:
         type: string
 
     secrets:
-      MY_SECRET:
-        description: A secret the caller must provide
+      CALLER_SECRET:
+        description: A secret that caller must provide
         required: true
   
    
-    # Alt_1
+  # Alt_1
     # outputs:
     #   allResults:
     #     description: The results from job1 and job2
@@ -33,7 +32,7 @@ on:
     #       multiplication: ${{ jobs.read_from_output.outputs.multiplication }}
     #       division: ${{ jobs.read_from_output.outputs.division }}
 
-    # Alt_2
+  # Alt_2
     outputs:
       finalSum:
         description: The sum from job1
