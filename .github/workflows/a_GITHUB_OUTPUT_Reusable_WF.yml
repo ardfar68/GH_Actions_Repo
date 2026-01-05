@@ -65,7 +65,7 @@ jobs:
     steps:
       - name: Use the secret
         run: |
-          echo The secret value is: ${{ secrets.MY_SECRET }}
+          echo The secret value is: ${{ secrets.CALLER_SECRET }}
           echo Example input is: ${{ inputs.exampleInput }}
 
       - name: Write sum result to output
