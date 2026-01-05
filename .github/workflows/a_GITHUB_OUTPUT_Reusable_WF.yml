@@ -148,12 +148,12 @@ jobs:
           echo job2: multiplication result:  ${{ steps.operations.outputs.multiplication }}
           echo job2: division result:  ${{ steps.operations.outputs.division }}
 
-      - name: Read from another job
+      - name: Read from job1
         run: |
           echo job1: sum result: ${{ needs.job1_write_to_output.outputs.sum }}
-          echo job1: division result: ${{ needs.job1_write_to_output.outputs.division }}
+          echo job1: division result: ${{ needs.job1_write_to_output.outputs.subtraction }}
           echo job1: multiplication result: ${{ needs.job1_write_to_output.outputs.multiplication }}
-          echo job1: subtraction result: ${{ needs.job1_write_to_output.outputs.subtraction }}
+          echo job1: subtraction result: ${{ needs.job1_write_to_output.outputs.division }}
 
 
  
