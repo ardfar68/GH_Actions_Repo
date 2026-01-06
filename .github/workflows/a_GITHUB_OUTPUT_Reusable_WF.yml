@@ -5,14 +5,15 @@ on:
       - dev1
   workflow_dispatch:
     inputs:
-      exampleInput_1:
+      exampleInput:
         description: This is an example output
         required: true
         type: string
   
   workflow_call:
     inputs:
-      exampleInput_2:
+      exampleInput:
+        description: This is from reusable wf
         required: true
         type: string
 
@@ -54,7 +55,7 @@ jobs:
       - name: Use the secret
         run: |
           echo The secret value is: ${{ secrets.CALLER_SECRET }}
-          echo Example input is: ${{ inputs.exampleInput_2 }}
+          echo Example input is: ${{ inputs.exampleInput }}
 
       - name: Write sum result to output
         id: sum
