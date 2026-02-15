@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       exampleInput:
-        description: This is an example output
+        description: This is an example output.
         required: true
         type: string
   
@@ -20,7 +20,7 @@ on:
     secrets:
       asf_secret:
         description: A secret that caller must provide
-        required: true
+        required: false
 
     outputs:
       finalSum:
@@ -39,7 +39,6 @@ on:
         description: The division from job2
         value: First value ${{ jobs.job1_write_to_output.outputs.division }}
 
-
 jobs:
 
   job1_write_to_output:
@@ -50,12 +49,15 @@ jobs:
       subtraction: ${{ steps.subtract.outputs.subtraction }}
       multiplication: ${{ steps.multi.outputs.multiplication }}
       division: ${{ steps.divide.outputs.division }}
+      secret_output: ${{ steps.use_secret.outputs.secret_value }}
 
     steps:
       - name: Use the secret
+        id: use_secret
         run: |
           echo Example input is: ${{ inputs.exampleInput }}
-          echo The secret value is: ${{ secrets.CALLER_SECRET }}
+          echo The secret value is: ${{ secrets.asf_secret }}
+          echo secret_value = ${{ secrets.asf_secret }} >> $GITHUB_OUTPUT
 
       - name: Write sum result to output
         id: sum
