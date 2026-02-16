@@ -18,4 +18,4 @@ jobs:
       - name: Use the secret
         id: use_secret
         run: |
-          echo Example input from workflow_call is: ${{ inputs.exampleInput }}
+          echo Example input from workflow_call is: ${{ inputs.exampleInputNew }}
