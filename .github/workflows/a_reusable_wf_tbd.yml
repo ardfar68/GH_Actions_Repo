@@ -1,0 +1,23 @@
+name: a1_reusable_wf_tbd
+on:
+  push:
+    branches:
+      - dev1
+
+  workflow_call:
+    inputs:
+      exampleInput:
+        description: This is from reusable wf
+        required: true
+        type: string
+
+jobs:
+  job1_write_to_output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use the secret
+        id: use_secret
+        run: |
+          echo Example input from  workflow_call is: ${{ inputs.exampleInput }}
+          # echo secret_value = ${{ secrets.asf_secret }} >> $GITHUB_OUTPUT
+          # echo The secret value from caller wf is: ${{ secrets.asf_secret }}
