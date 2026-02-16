@@ -7,7 +7,7 @@ on:
   workflow_call:
     inputs:
       exampleInput:
-        description: default värde
+        description: default value
         required: true
         type: string
 
