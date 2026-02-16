@@ -24,3 +24,4 @@ jobs:
         run: |
           echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
+          echo secret value from workflow_call is: ${asf_secret:0:7}
