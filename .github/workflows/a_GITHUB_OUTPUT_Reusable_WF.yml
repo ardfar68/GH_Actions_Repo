@@ -56,7 +56,7 @@ jobs:
         id: use_secret
         run: |
           echo Example input is: ${{ inputs.exampleInput }}
-          echo The secret value is: ${{ secrets.asf_secret }}
+          # echo The secret value from caller wf is: ${{ secrets.asf_secret }}
           echo secret_value = ${{ secrets.asf_secret }} >> $GITHUB_OUTPUT
 
       - name: Write sum result to output
