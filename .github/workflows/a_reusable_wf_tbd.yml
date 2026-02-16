@@ -21,7 +21,8 @@ jobs:
     steps:
       - name: Use the secret
         id: use_secret
+        env:
+          ASF_SECRET: ${{ secrets.asf_secret }}
         run: |
           echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
-          echo secret value from workflow_call is: ${{ secrets.asf_secret }}
-          echo secret value from workflow_call is: ${asf_secret:0:7}
+          echo secret value from workflow_call is: ${ASF_SECRET:0:7}
