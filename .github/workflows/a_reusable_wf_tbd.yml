@@ -1,15 +1,16 @@
 name: a1_reusable_wf_tbd
 on:
-  # push:
-  #   branches:
-  #     - dev1
-
   workflow_call:
     inputs:
       exampleInputNew:
         description: "default value"
         required: true
         type: string
+
+    secrets:
+      asf_secret:
+        description: A secret that caller must provide
+        required: false
 
 jobs:
   job1_write_to_output:
