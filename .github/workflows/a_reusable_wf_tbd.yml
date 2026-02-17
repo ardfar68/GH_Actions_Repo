@@ -29,11 +29,16 @@ jobs:
   
   job2:
     runs-on: ubuntu-latest
-    outputs:
-      sumOfNumber: ${{ steps.sum.outputs.summation }}
+    # outputs:
+    #   sumOfNumber: ${{ steps.sum.outputs.summation }}
 
     steps:
      - name: Write sum result to output
        id: sum
        run: |
          echo summation=$(( 10 + 10)) >> $GITHUB_OUTPUT
+
+     - name: read sum result from output
+       run: |
+         echo ${{ steps.sum.outputs.summation }}
+
