@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dev1
+  workflow_dispatch:
   workflow_call:
     inputs:
       exampleInputNew:
@@ -23,4 +24,4 @@ jobs:
         id: use_secret
         run: |
           echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
-          echo secret value from workflow_call is: $${{ secrets.asf_secret }}
+          echo secret value from workflow_call is: ${{ secrets.asf_secret }}
