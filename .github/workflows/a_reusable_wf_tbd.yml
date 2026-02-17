@@ -17,7 +17,7 @@ on:
         required: false
 
 jobs:
-  job1_write_to_output:
+  print_values_from_caller_wf:
     runs-on: ubuntu-latest
     steps:
       - name: Use the secret
