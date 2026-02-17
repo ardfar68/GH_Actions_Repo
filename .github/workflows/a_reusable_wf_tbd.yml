@@ -36,4 +36,4 @@ jobs:
      - name: Write sum result to output
        id: sum
        run: |
-         echo summation = $(( 10 + 10)) >> $GITHUB_OUTPUTS
+         echo summation = $(( 10 + 10)) >> $GITHUB_OUTPUT
