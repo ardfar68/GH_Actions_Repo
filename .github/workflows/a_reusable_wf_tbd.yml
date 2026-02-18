@@ -25,15 +25,15 @@ jobs:
         run: |
           echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
-  
-  
-  write_to_and_read_from_ouput:
-    runs-on: ubuntu-latest
-    outputs:
-      sumOfNumber: ${{ steps.sum.outputs.summation }}
-      subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
-      multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
-      divisionOfNumber: ${{ steps.sum.outputs.division }}
+
+  write_to_and_read_from_output:
+      this is a good name:
+      runs-on: ubuntu-latest
+      outputs:
+        sumOfNumber: ${{ steps.sum.outputs.summation }}
+        subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
+        multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
+        divisionOfNumber: ${{ steps.sum.outputs.division }}
 
     steps:
       - name: Write sum result to output
@@ -46,8 +46,8 @@ jobs:
 
       - name: read sum result from output
         run: |
-          echo the sum is: ${{ steps.sum.outputs.summation }}
-          echo the sum is: ${{ steps.sum.outputs.subtraction }}
-          echo the sum is: ${{ steps.sum.outputs.multiplication }}
-          echo the sum is: ${{ steps.sum.outputs.division }}
+          echo summation is: ${{ steps.sum.outputs.summation }}
+          echo subtraction is: ${{ steps.sum.outputs.subtraction }}
+          echo multiplication is: ${{ steps.sum.outputs.multiplication }}
+          echo division is: ${{ steps.sum.outputs.division }}
 
