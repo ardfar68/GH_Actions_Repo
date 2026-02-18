@@ -29,24 +29,37 @@ jobs:
   write_to_and_read_from_output:
     runs-on: ubuntu-latest
     outputs:
-      sumOfNumber: ${{ steps.sum.outputs.summation }}
-      subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
-      multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
-      divisionOfNumber: ${{ steps.sum.outputs.division }}
+      sumOfNumber: ${{ steps.math_operation.outputs.summation }}
+      subtractionOfNumber: ${{ steps.math_operation.outputs.subtraction }}
+      multiplicationOfNumber: ${{ steps.math_operation.outputs.multiplication }}
+      divisionOfNumber: ${{ steps.math_operation.outputs.division }}
 
     steps:
       - name: write sum result to output
-        id: sum
+        id: math_operation
         run: |
           echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
           echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
           echo multiplication=$(( 2 * 15)) >> $GITHUB_OUTPUT
           echo division=$(( 80 / 2)) >> $GITHUB_OUTPUT
 
-      - name: read sum result from output
+      - name: read from step in same job
         run: |
-          echo summation is: ${{ steps.sum.outputs.summation }}
-          echo subtraction is: ${{ steps.sum.outputs.subtraction }}
-          echo multiplication is: ${{ steps.sum.outputs.multiplication }}
-          echo division is: ${{ steps.sum.outputs.division }}
+          echo summation is: ${{ steps.math_operation.outputs.summation }}
+          echo subtraction is: ${{ steps.math_operation.outputs.subtraction }}
+          echo multiplication is: ${{ steps.math_operation.outputs.multiplication }}
+          echo division is: ${{ steps.math_operation.outputs.division }}
+  
+  read_from_other_job:
+    runs-on: ubuntu-latest
+    needs: write_to_and_read_from_output
+
+    steps:
+      - name: read from step in other job
+        run: |
+          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.sumOfNumber }}
+          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.subtractionOfNumber }}
+          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.multiplicationOfNumber }}
+          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.divisionOfNumber }}
+
 
