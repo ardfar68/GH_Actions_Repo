@@ -27,7 +27,6 @@ jobs:
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
 
   write_to_and_read_from_output:
-    name: this is a good name
     runs-on: ubuntu-latest
     outputs:
       sumOfNumber: ${{ steps.sum.outputs.summation }}
@@ -36,7 +35,7 @@ jobs:
       divisionOfNumber: ${{ steps.sum.outputs.division }}
 
     steps:
-      - name: Write sum result to output
+      - name: write sum result to output
         id: sum
         run: |
           echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
