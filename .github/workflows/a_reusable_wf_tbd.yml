@@ -19,16 +19,19 @@ on:
     outputs:
       sumOutput:
         description: "this is for caller wf"
-        value: $ {{ jobs.write_read_same_job.outputs.sum }}
+        value: ${{ jobs.write_read_same_job.outputs.sum }}
+
       subOutput:
         description: "this is for caller wf"
-        value: $ {{ jobs.write_read_same_job.outputs.sub }}
+        value: ${{ jobs.write_read_same_job.outputs.sub }}
+
       multiOutput:
         description: "this is for caller wf"
-        value: $ {{ jobs.write_read_same_job.outputs.multi }}
+        value: ${{ jobs.write_read_same_job.outputs.multi }}
+
       divOutput:
         description: "this is for caller wf"
-        value: $ {{ jobs.write_read_same_job.outputs.div }}
+        value: ${{ jobs.write_read_same_job.outputs.div }}
 
 
 jobs:
