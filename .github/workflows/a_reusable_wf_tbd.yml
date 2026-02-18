@@ -30,13 +30,13 @@ jobs:
     name:  write_to_and_read_from_output
     runs-on: ubuntu-latest
     outputs:
-      sumOfNumber: ${{ steps.math.outputs.summation }}
-      subtractionOfNumber: ${{ steps.math.outputs.subtraction }}
-      multiplicationOfNumber: ${{ steps.math.outputs.multiplication }}
-      divisionOfNumber: ${{ steps.math.outputs.division }}
+      sum: ${{ steps.math.outputs.summation }}
+      sub: ${{ steps.math.outputs.subtraction }}
+      multi: ${{ steps.math.outputs.multiplication }}
+      div: ${{ steps.math.outputs.division }}
 
     steps:
-      - name: write sum result to output
+      - name: write to output
         id: math
         run: |
           echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
@@ -46,10 +46,10 @@ jobs:
 
       - name: read from step in same job
         run: |
-          echo summation is: ${{ steps.math.outputs.summation }}
-          echo subtraction is: ${{ steps.math.outputs.subtraction }}
-          echo multiplication is: ${{ steps.math.outputs.multiplication }}
-          echo division is: ${{ steps.math.outputs.division }}
+          echo sum in same job is: ${{ steps.math.outputs.summation }}
+          echo sub in same job is: ${{ steps.math.outputs.subtraction }}
+          echo multi in same job is: ${{ steps.math.outputs.multiplication }}
+          echo div in same job is: ${{ steps.math.outputs.division }}
   
   read_from_other_job:
     runs-on: ubuntu-latest
@@ -58,9 +58,9 @@ jobs:
     steps:
       - name: read from step in other job
         run: |
-          echo summation is: ${{ needs. write_read_same_job.outputs.sumOfNumber }}
-          echo subtraction is: ${{ needs. write_read_same_job.outputs.subtractionOfNumber }}
-          echo multiplication is: ${{ needs. write_read_same_job.outputs.multiplicationOfNumber }}
-          echo division is: ${{ needs. write_read_same_job.outputs.divisionOfNumber }}
+          echo sum in other job is: ${{ needs.write_read_same_job.outputs.sum }}
+          echo sub in other job is: ${{ needs.write_read_same_job.outputs.sub }}
+          echo multi in other job is: ${{ needs.write_read_same_job.outputs.multi }}
+          echo div in other job is: ${{ needs.write_read_same_job.outputs.div }}
 
 
