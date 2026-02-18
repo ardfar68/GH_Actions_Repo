@@ -16,6 +16,21 @@ on:
         description: A secret that caller must provide
         required: false
 
+    outputs:
+      sumOutput:
+        description: "this is for caller wf"
+        value: $ {{ jobs.write_read_same_job.outputs.sum }}
+      subOutput:
+        description: "this is for caller wf"
+        value: $ {{ jobs.write_read_same_job.outputs.sub }}
+      multiOutput:
+        description: "this is for caller wf"
+        value: $ {{ jobs.write_read_same_job.outputs.multi }}
+      divOutput:
+        description: "this is for caller wf"
+        value: $ {{ jobs.write_read_same_job.outputs.div }}
+
+
 jobs:
   print_values_from_caller_wf:
     runs-on: ubuntu-latest
@@ -23,17 +38,17 @@ jobs:
       - name: Use the secret
         id: use_secret
         run: |
-          echo input value from workflow_call is: ${{inputs.exampleInputNew}}
-          echo secret value from workflow_call is: ${{secrets.asf_secret}}
+          echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
+          echo secret value from workflow_call is: ${{ secrets.asf_secret }}
 
   write_read_same_job:
     name:  write_to_and_read_from_output
     runs-on: ubuntu-latest
     outputs:
-      sum: ${{steps.math.outputs.summation}}
-      sub: ${{steps.math.outputs.subtraction}}
-      multi: ${{steps.math.outputs.multiplication}}
-      div: ${{steps.math.outputs.division}}
+      sum: ${{ steps.math.outputs.summation }}
+      sub: ${{ steps.math.outputs.subtraction }}
+      multi: ${{ steps.math.outputs.multiplication }}
+      div: ${{ steps.math.outputs.division }}
 
     steps:
       - name: write to output
@@ -46,10 +61,10 @@ jobs:
 
       - name: read from step in same job
         run: |
-          echo sum in same job is: ${{steps.math.outputs.summation}}
-          echo sub in same job is: ${{steps.math.outputs.subtraction}}
-          echo multi in same job is: ${{steps.math.outputs.multiplication}}
-          echo div in same job is: ${{steps.math.outputs.division}}
+          echo sum in same job is: ${{ steps.math.outputs.summation }}
+          echo sub in same job is: ${{ steps.math.outputs.subtraction }}
+          echo multi in same job is: ${{ steps.math.outputs.multiplication }}
+          echo div in same job is: ${{ steps.math.outputs.division }}
   
   read_from_other_job:
     runs-on: ubuntu-latest
@@ -58,9 +73,9 @@ jobs:
     steps:
       - name: read from step in other job
         run: |
-          echo sum in other job is: ${{needs.write_read_same_job.outputs.sum}}
-          echo sub in other job is: ${{needs.write_read_same_job.outputs.sub}}
-          echo multi in other job is: ${{needs.write_read_same_job.outputs.multi}}
-          echo div in other job is: ${{needs.write_read_same_job.outputs.div}}
+          echo sum in other job is: ${{ needs.write_read_same_job.outputs.sum }}
+          echo sub in other job is: ${{ needs.write_read_same_job.outputs.sub }}
+          echo multi in other job is: ${{ needs.write_read_same_job.outputs.multi }}
+          echo div in other job is: ${{ needs.write_read_same_job.outputs.div }}
 
 
