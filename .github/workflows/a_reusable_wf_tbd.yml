@@ -26,17 +26,18 @@ jobs:
           echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
 
-  write_to_and_read_from_output:
+  write_read_same_job:
+    name:  write_to_and_read_from_output
     runs-on: ubuntu-latest
     outputs:
-      sumOfNumber: ${{ steps.math_operation.outputs.summation }}
-      subtractionOfNumber: ${{ steps.math_operation.outputs.subtraction }}
-      multiplicationOfNumber: ${{ steps.math_operation.outputs.multiplication }}
-      divisionOfNumber: ${{ steps.math_operation.outputs.division }}
+      sumOfNumber: ${{ steps.math.outputs.summation }}
+      subtractionOfNumber: ${{ steps.math.outputs.subtraction }}
+      multiplicationOfNumber: ${{ steps.math.outputs.multiplication }}
+      divisionOfNumber: ${{ steps.math.outputs.division }}
 
     steps:
       - name: write sum result to output
-        id: math_operation
+        id: math
         run: |
           echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
           echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
@@ -45,21 +46,21 @@ jobs:
 
       - name: read from step in same job
         run: |
-          echo summation is: ${{ steps.math_operation.outputs.summation }}
-          echo subtraction is: ${{ steps.math_operation.outputs.subtraction }}
-          echo multiplication is: ${{ steps.math_operation.outputs.multiplication }}
-          echo division is: ${{ steps.math_operation.outputs.division }}
+          echo summation is: ${{ steps.math.outputs.summation }}
+          echo subtraction is: ${{ steps.math.outputs.subtraction }}
+          echo multiplication is: ${{ steps.math.outputs.multiplication }}
+          echo division is: ${{ steps.math.outputs.division }}
   
   read_from_other_job:
     runs-on: ubuntu-latest
-    needs: write_to_and_read_from_output
+    needs:  write_read_same_job
 
     steps:
       - name: read from step in other job
         run: |
-          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.sumOfNumber }}
-          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.subtractionOfNumber }}
-          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.multiplicationOfNumber }}
-          echo sum is: ${{ needs.write_to_and_read_from_output.outputs.divisionOfNumber }}
+          echo summation is: ${{ needs. write_read_same_job.outputs.sumOfNumber }}
+          echo subtraction is: ${{ needs. write_read_same_job.outputs.subtractionOfNumber }}
+          echo multiplication is: ${{ needs. write_read_same_job.outputs.multiplicationOfNumber }}
+          echo division is: ${{ needs. write_read_same_job.outputs.divisionOfNumber }}
 
 
