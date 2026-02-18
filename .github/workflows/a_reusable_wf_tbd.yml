@@ -27,13 +27,13 @@ jobs:
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
 
   write_to_and_read_from_output:
-      this is a good name:
-      runs-on: ubuntu-latest
-      outputs:
-        sumOfNumber: ${{ steps.sum.outputs.summation }}
-        subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
-        multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
-        divisionOfNumber: ${{ steps.sum.outputs.division }}
+    name: this is a good name
+    runs-on: ubuntu-latest
+    outputs:
+      sumOfNumber: ${{ steps.sum.outputs.summation }}
+      subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
+      multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
+      divisionOfNumber: ${{ steps.sum.outputs.division }}
 
     steps:
       - name: Write sum result to output
