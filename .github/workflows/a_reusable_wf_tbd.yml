@@ -27,24 +27,27 @@ jobs:
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
   
   
-  job2:
+  write_to_and_read_from_ouput:
     runs-on: ubuntu-latest
     outputs:
       sumOfNumber: ${{ steps.sum.outputs.summation }}
+      subtractionOfNumber: ${{ steps.sum.outputs.subtraction }}
+      multiplicationOfNumber: ${{ steps.sum.outputs.multiplication }}
+      divisionOfNumber: ${{ steps.sum.outputs.division }}
 
     steps:
-     - name: Write sum result to output
-       id: sum
-       run: |
-         echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
-         echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
-         echo multiplication=$(( 2 * 15)) >> $GITHUB_OUTPUT
-         echo division=$(( 80 / 2)) >> $GITHUB_OUTPUT
+      - name: Write sum result to output
+        id: sum
+        run: |
+          echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
+          echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
+          echo multiplication=$(( 2 * 15)) >> $GITHUB_OUTPUT
+          echo division=$(( 80 / 2)) >> $GITHUB_OUTPUT
 
-     - name: read sum result from output
-       run: |
-         echo the sum is: ${{ steps.sum.outputs.summation }}
-         echo the sum is: ${{ steps.sum.outputs.subtraction }}
-         echo the sum is: ${{ steps.sum.outputs.multiplication }}
-         echo the sum is: ${{ steps.sum.outputs.division }}
+      - name: read sum result from output
+        run: |
+          echo the sum is: ${{ steps.sum.outputs.summation }}
+          echo the sum is: ${{ steps.sum.outputs.subtraction }}
+          echo the sum is: ${{ steps.sum.outputs.multiplication }}
+          echo the sum is: ${{ steps.sum.outputs.division }}
 
