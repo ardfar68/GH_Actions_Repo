@@ -30,15 +30,11 @@ on:
       divOutput:
         description: "this is for caller wf"
         value: ${{ jobs.write_read_same_job.outputs.div }}
-
-      # Alt_2
+        
       allResults:
-        description: The results from job1 and job2
-        value: | 
-          sum: ${{ jobs.write_read_same_job.outputs.sum }}
-          subtraction: ${{ jobs.write_read_same_job.outputs.sub }}
-          multiplication: ${{ jobs.write_read_same_job.outputs.multi }}
-          division: ${{ jobs.write_read_same_job.outputs.div }}
+        description: The results from job1
+        value: ${{ format('sum={0},sub={1},multi={2},div={3}', jobs.write_read_same_job.outputs.sum, jobs.write_read_same_job.outputs.sub, jobs.write_read_same_job.outputs.multi, jobs.write_read_same_job.outputs.div) }}
+
 
 
 jobs:
