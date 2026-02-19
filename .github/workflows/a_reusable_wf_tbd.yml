@@ -31,6 +31,15 @@ on:
         description: "this is for caller wf"
         value: ${{ jobs.write_read_same_job.outputs.div }}
 
+      # Alt_2
+      allResults:
+        description: The results from job1 and job2
+        value: | 
+          sum: ${{ jobs.write_read_same_job.outputs.sum }}
+          subtraction: ${{ jobs.write_read_same_job.outputs.sub }}
+          multiplication: ${{ jobs.write_read_same_job.outputs.multi }}
+          division: ${{ jobs.write_read_same_job.outputs.div }}
+
 
 jobs:
   print_input_secret_from_caller:
