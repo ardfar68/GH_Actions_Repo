@@ -10,12 +10,10 @@ on:
         description: "default value"
         required: true
         type: string
-
     secrets:
       asf_secret:
         description: A secret that caller must provide
         required: false
-
     outputs:
       sumOutput:
         description: "this is for caller wf"
@@ -35,7 +33,7 @@ on:
 
 
 jobs:
-  print_values_from_caller_wf:
+  print_input_secret_from_caller:
     runs-on: ubuntu-latest
     steps:
       - name: Use the secret
