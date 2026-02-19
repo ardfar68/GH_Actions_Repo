@@ -43,7 +43,7 @@ jobs:
           echo secret value from workflow_call is: ${{ secrets.asf_secret }}
 
   write_read_same_job:
-    name:  write_to_and_read_from_output
+    # name:  write_to_and_read_from_output
     runs-on: ubuntu-latest
     outputs:
       sum: ${{ steps.math.outputs.summation }}
