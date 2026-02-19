@@ -34,7 +34,9 @@ on:
 
 jobs:
   print_input_secret_from_caller:
+    name: job1
     runs-on: ubuntu-latest
+
     steps:
       - name: Use the secret
         id: use_secret
@@ -43,30 +45,32 @@ jobs:
           echo secret value from caller wf: ${{ secrets.asf_secret }}
 
   write_read_same_job:
-    runs-on: ubuntu-latest
-    outputs:
-      sum: ${{ steps.math.outputs.summation }}
-      sub: ${{ steps.math.outputs.subtraction }}
-      multi: ${{ steps.math.outputs.multiplication }}
-      div: ${{ steps.math.outputs.division }}
+      name: job2
+      runs-on: ubuntu-latest
+      outputs:
+        sum: ${{ steps.math.outputs.summation }}
+        sub: ${{ steps.math.outputs.subtraction }}
+        multi: ${{ steps.math.outputs.multiplication }}
+        div: ${{ steps.math.outputs.division }}
 
-    steps:
-      - name: write to output
-        id: math
-        run: |
-          echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
-          echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
-          echo multiplication=$(( 2 * 15)) >> $GITHUB_OUTPUT
-          echo division=$(( 80 / 2)) >> $GITHUB_OUTPUT
+      steps:
+        - name: write to output
+          id: math
+          run: |
+            echo summation=$(( 5 + 5)) >> $GITHUB_OUTPUT
+            echo subtraction=$(( 30 - 10)) >> $GITHUB_OUTPUT
+            echo multiplication=$(( 2 * 15)) >> $GITHUB_OUTPUT
+            echo division=$(( 80 / 2)) >> $GITHUB_OUTPUT
 
-      - name: read from step in same job
-        run: |
-          echo sum in same job is: ${{ steps.math.outputs.summation }}
-          echo sub in same job is: ${{ steps.math.outputs.subtraction }}
-          echo multi in same job is: ${{ steps.math.outputs.multiplication }}
-          echo div in same job is: ${{ steps.math.outputs.division }}
+        - name: read from step in same job
+          run: |
+            echo sum in same job is: ${{ steps.math.outputs.summation }}
+            echo sub in same job is: ${{ steps.math.outputs.subtraction }}
+            echo multi in same job is: ${{ steps.math.outputs.multiplication }}
+            echo div in same job is: ${{ steps.math.outputs.division }}
   
   read_from_other_job:
+    name: job3
     runs-on: ubuntu-latest
     needs:  write_read_same_job
 
