@@ -39,11 +39,10 @@ jobs:
       - name: Use the secret
         id: use_secret
         run: |
-          echo input value from workflow_call is: ${{ inputs.exampleInputNew }}
-          echo secret value from workflow_call is: ${{ secrets.asf_secret }}
+          echo input value from caller wf: ${{ inputs.exampleInputNew }}
+          echo secret value from caller wf: ${{ secrets.asf_secret }}
 
   write_read_same_job:
-    # name:  write_to_and_read_from_output
     runs-on: ubuntu-latest
     outputs:
       sum: ${{ steps.math.outputs.summation }}
