@@ -34,7 +34,6 @@ on:
 
 jobs:
   print_input_secret_from_caller:
-    name: job1
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +44,6 @@ jobs:
           echo secret value from caller wf: ${{ secrets.asf_secret }}
 
   write_read_same_job:
-      name: job2
       runs-on: ubuntu-latest
       outputs:
         sum: ${{ steps.math.outputs.summation }}
@@ -70,7 +68,6 @@ jobs:
             echo div in same job is: ${{ steps.math.outputs.division }}
   
   read_from_other_job:
-    name: job3
     runs-on: ubuntu-latest
     needs:  write_read_same_job
 
