@@ -1,4 +1,4 @@
-name: log context object
+name: print context objects
 on:
   push:
     branches:
