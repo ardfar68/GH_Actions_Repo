@@ -13,6 +13,7 @@ jobs:
       - name: Print github.ref
         id: print-github-context
         run: |
+          # gh context object
           echo github.action is: ${{ github.action }}
           echo github.actor is: ${{ github.actor }}
           echo github.event_name is_tbd: ${{ github.event_name }}
@@ -33,6 +34,7 @@ jobs:
           echo github.server_url is: ${{ github.server_url }}
           echo github.api_url is: ${{ github.api_url }}
           echo github.graphql_url is: ${{ github.graphql_url }}
+          # runner context object
           echo runner.os is: ${{runner.os }}
           echo runner.arch is: ${{runner.arch }}
           echo runner.name is: ${{runner.name }}
