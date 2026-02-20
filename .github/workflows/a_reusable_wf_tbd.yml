@@ -1,8 +1,8 @@
 name: a1_reusable_wf_tbd
 on:
-  push:
-    branches:
-      - dev1
+  # push:
+  #   branches:
+  #     - dev1
   workflow_dispatch:
   workflow_call:
     inputs:
