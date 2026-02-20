@@ -12,7 +12,7 @@ jobs:
 
     steps:
 
-      - name: log gh context object
+      - name: print github context object
         run: |
           echo github.action: ${{ github.action }}
           echo github.actor: ${{ github.actor }}
@@ -35,7 +35,7 @@ jobs:
           echo github.api_url: ${{ github.api_url }}
           echo github.graphql_url: ${{ github.graphql_url }}
 
-      - name: log runner context object
+      - name: print runner context object
         run: |
           echo runner.os: ${{ runner.os }}
           echo runner.arch: ${{ runner.arch }}
