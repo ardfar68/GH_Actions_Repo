@@ -6,14 +6,12 @@ on:
 
 jobs:
 
-  job1_write_to_output:
+  log_context_object:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print github.ref
-        id: print-github-context
+      - name: log gh context_object
         run: |
-          # gh context object
           echo github.action is: ${{ github.action }}
           echo github.actor is: ${{ github.actor }}
           echo github.event_name is_tbd: ${{ github.event_name }}
@@ -34,9 +32,17 @@ jobs:
           echo github.server_url is: ${{ github.server_url }}
           echo github.api_url is: ${{ github.api_url }}
           echo github.graphql_url is: ${{ github.graphql_url }}
-          # runner context object
-          echo runner.os is: ${{runner.os }}
-          echo runner.arch is: ${{runner.arch }}
-          echo runner.name is: ${{runner.name }}
-          echo runner.temp is: ${{runner.temp }}
-          echo runner.tool_cache is: ${{runner.tool_cache }}
+
+
+
+          
+          
+      - name: log runner context_object
+        run: |
+          echo runner.os: ${{ runner.os }}
+          echo runner.arch: ${{ runner.arch }}
+          echo runner.name: ${{ runner.name }}
+          echo runner.temp: ${{ runner.temp }}
+          echo runner.tool_cache: ${{ runner.tool_cache }}
+          echo runner.workspace: ${{ runner.workspace }}
+          echo runner.run_attempt: ${{ runner.run_attempt }}
