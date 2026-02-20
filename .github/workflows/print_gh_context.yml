@@ -1,4 +1,4 @@
-name: a1_reusable_wf
+name: log gh context object
 on:
   push:
     branches:
