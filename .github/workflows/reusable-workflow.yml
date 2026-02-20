@@ -1,8 +1,8 @@
-name: a1_reusable_wf_tbd
+name: reusable workflow
 on:
-  # push:
-  #   branches:
-  #     - dev1
+  push:
+    branches:
+      - dev1
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -30,12 +30,6 @@ on:
       divOutput:
         description: "this is for caller wf"
         value: ${{ jobs.write_read_same_job.outputs.div }}
-        
-      allResults:
-        description: The results from job1
-        value: ${{ format('sum={0},sub={1},multi={2},div={3}', jobs.write_read_same_job.outputs.sum, jobs.write_read_same_job.outputs.sub, jobs.write_read_same_job.outputs.multi, jobs.write_read_same_job.outputs.div) }}
-
-
 
 jobs:
   print_input_secret_from_caller:
